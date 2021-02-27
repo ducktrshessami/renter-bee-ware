@@ -33,10 +33,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ducktrshessami/project-3.git"
+    "url": "git+https://github.com/ducktrshessami/renter-bee-ware.git"
   },
   "bugs": {
-    "url": "https://github.com/ducktrshessami/project-3/issues"
+    "url": "https://github.com/ducktrshessami/renter-bee-ware/issues"
   },
-  "homepage": "https://github.com/ducktrshessami/project-3#readme"
+  "homepage": "https://github.com/ducktrshessami/renter-bee-ware#readme"
 }
