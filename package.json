@@ -1,7 +1,6 @@
 {
-  "name": "mern",
+  "name": "project-3",
   "version": "1.0.0",
-  "description": "Mern Demo",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -13,8 +12,10 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "author": "",
-  "license": "ISC",
+  "contributors": [
+    "ducktrshessami (https://github.com/ducktrshessami)"
+  ],
+  "license": "MIT",
   "devDependencies": {
     "concurrently": "^4.1.0",
     "nodemon": "^1.18.7"
@@ -22,5 +23,13 @@
   "dependencies": {
     "express": "^4.16.3",
     "if-env": "^1.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ducktrshessami/project-3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ducktrshessami/project-3/issues"
+  },
+  "homepage": "https://github.com/ducktrshessami/project-3#readme"
 }
