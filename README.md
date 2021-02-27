@@ -1,3 +1,3 @@
-# project-3
+# renter-bee-ware
 
-Deployment: [RenterbewarE](https://renterbeware.herokuapp.com/)
+Deployment: [Renter Bee-ware](https://renterbeeware.herokuapp.com/)
