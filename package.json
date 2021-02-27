@@ -13,7 +13,10 @@
     "heroku-postbuild": "npm run build"
   },
   "contributors": [
-    "ducktrshessami (https://github.com/ducktrshessami)"
+    "ducktrshessami (https://github.com/ducktrshessami)",
+    "dillonhoban (https://github.com/dillonhoban)",
+    "ethomas22 (https://github.com/ethomas22)",
+    "ndpenaloza (https://github.com/ndpenaloza)"
   ],
   "license": "MIT",
   "devDependencies": {
