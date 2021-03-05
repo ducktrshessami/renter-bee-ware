@@ -8,6 +8,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// Link API routes
+require("./routes/api")(app);
+
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("*", function(req, res) {
