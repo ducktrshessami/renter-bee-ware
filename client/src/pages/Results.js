@@ -1,4 +1,4 @@
-function Results () {
+function Results() {
 
 }
 

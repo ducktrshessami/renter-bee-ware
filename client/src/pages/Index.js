@@ -1,4 +1,4 @@
-function Index () {
+function Index() {
 
 }
 
