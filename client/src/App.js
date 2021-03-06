@@ -4,7 +4,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Index from './pages/Index';
 import Login from './pages/Login';
-import SignUp from './pages/SignUp';
+import Signup from './pages/Signup';
 import SearchApt from './pages/SearchApt';
 import Member from './pages/Member';
 import WriteReview from './pages/WriteReview';
@@ -21,7 +21,7 @@ class App extends Component {
           <div className="App">
             <Route exact path='/' component={Index}/>
             <Route exact path='/login' component={Login}/>
-            <Route exact path='/sign-up' component={SignUp}/>
+            <Route exact path='/sign-up' component={Signup}/>
             <Route exact path='/search-apt' component={SearchApt}/>
             <Route exact path='/member' component={Member}/>
             <Route exact path='/write-review' component={WriteReview}/>
