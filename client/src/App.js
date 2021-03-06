@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import logo from "./logo.svg";
 import "./App.css";
 import Index from './pages/Index';
@@ -15,15 +16,20 @@ import Results from './pages/Results';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <Switch>
+          <div className="App">
+            <Route exact path='/' component={Index}/>
+            <Route exact path='/login' component={Login}/>
+            <Route exact path='/sign-up' component={SignUp}/>
+            <Route exact path='/search-apt' component={SearchApt}/>
+            <Route exact path='/member' component={Member}/>
+            <Route exact path='/write-review' component={WriteReview}/>
+            <Route exact path='/edit-review' component={EditReview}/>
+            <Route exact path='results' component={Results}/> 
+          </div>
+        </Switch>
+      </Router>
     );
   }
 }
