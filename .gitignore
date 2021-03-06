@@ -105,3 +105,6 @@ dist
 
 # OSX metadata files
 **/*.DS_Store
+
+# Sequelize migrations
+/migrations

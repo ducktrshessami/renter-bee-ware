@@ -13,23 +13,30 @@
     "heroku-postbuild": "npm run build"
   },
   "contributors": [
-    "ducktrshessami (https://github.com/ducktrshessami)"
+    "ducktrshessami (https://github.com/ducktrshessami)",
+    "dillonhoban (https://github.com/dillonhoban)",
+    "ethomas22 (https://github.com/ethomas22)",
+    "ndpenaloza (https://github.com/ndpenaloza)"
   ],
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^4.1.0",
+    "dotenv": "^8.2.0",
     "nodemon": "^1.18.7"
   },
   "dependencies": {
     "express": "^4.16.3",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.5.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ducktrshessami/project-3.git"
+    "url": "git+https://github.com/ducktrshessami/renter-bee-ware.git"
   },
   "bugs": {
-    "url": "https://github.com/ducktrshessami/project-3/issues"
+    "url": "https://github.com/ducktrshessami/renter-bee-ware/issues"
   },
-  "homepage": "https://github.com/ducktrshessami/project-3#readme"
+  "homepage": "https://github.com/ducktrshessami/renter-bee-ware#readme"
 }
