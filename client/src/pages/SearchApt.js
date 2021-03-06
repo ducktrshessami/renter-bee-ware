@@ -1,4 +1,4 @@
-function SearchApt () {
+function SearchApt() {
 
 }
 

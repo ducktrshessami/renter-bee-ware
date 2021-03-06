@@ -1,4 +1,4 @@
-function SignUp () {
+function SignUp() {
 
 }
 
