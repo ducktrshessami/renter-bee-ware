@@ -1,6 +1,6 @@
-import fetch from "node-fetch";
+const fetch = require("node-fetch");
 
-export default function (apikey) {
+module.exports = function (apikey) {
     function findPlaceFromText(query) {
         return fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=${apikey}&input=${query}&inputtype=textquery&fields=place_id,formatted_address,name,types`)
             .then(res => res.json());
