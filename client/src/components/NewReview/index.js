@@ -1,6 +1,12 @@
 import React, { Component } from 'react'; 
+import M from "materialize-css";
 
 class NewReview extends Component {
+
+  componentDidMount() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems);
+  };
 
   render() {
     return(
@@ -34,9 +40,13 @@ class NewReview extends Component {
                 </div>
               </div>
               <div className="row">
-                <div className="input-field col s6">
-                  <input id="dates-occupied" type="text" className="validate"/>
-                  <label htmlFor="dates-occupied">Dates Occupied</label>
+                <div className="input-field col s3">
+                <input type="text" className="datepicker"/>
+                  <label htmlFor="dates-occupied">Start Date</label>
+                </div>
+                <div className="input-field col s3">
+                <input type="text" className="datepicker"/>
+                  <label htmlFor="dates-occupied">End Date</label>
                 </div>
                 <div className="input-field col s6">
                   <input id="stars" type="text" className="validate"/>
