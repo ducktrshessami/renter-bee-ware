@@ -22,10 +22,12 @@ body {
   font-family: 'Nunito', sans-serif;
 }
 
-
 .btn-large {
   background-color: #0c4499;
   margin-right: 1rem;
+}
+.btn-large:hover, .btn-small:hover, .btn:hover {
+  background-color: #1277E1;
 }
 
 @keyframes App-logo-spin {
