@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, UUIDV4
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Place extends Model {
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     formatted_address: DataTypes.STRING,
     name: DataTypes.STRING,
-    type: DataTypes.ARRAY,
+    type: DataTypes.ARRAY(DataTypes.STRING),
     url: DataTypes.STRING,
     photo: DataTypes.STRING
   }, {
