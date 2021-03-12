@@ -1,7 +1,10 @@
+import React, { Component } from "react";
+
 function SearchApt() {
   return (
     <div>
-      <p>Search-Apartment-Here</p>
+      <input type="text" placeholder="Search Apartment Address Here"></input>
+      <button type="submit">Search</button>
     </div>
   );
 }
