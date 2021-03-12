@@ -9,8 +9,7 @@ import Index from './pages/Index';
 // import WriteReview from './pages/WriteReview';
 // import EditReview from './pages/EditReview';
 import Results from './pages/Results';
-
-
+import "materialize-css/dist/css/materialize.min.css";
 
 class App extends Component {
   render() {
