@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, UUIDV4
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Review extends Model {
@@ -14,8 +14,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Review.init({
-    id: DataTypes.UUID,
-    stars: DataTypes.INTEGER,
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: UUIDV4
+    },
+    stars: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     message: DataTypes.STRING
   }, {
     sequelize,
