@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
+  "homepage": "https://renterbeeware.herokuapp.com/",
   "dependencies": {
     "@react-google-maps/api": "^2.1.1",
     "materialize-css": "^1.0.0-rc.2",
