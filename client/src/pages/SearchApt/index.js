@@ -35,13 +35,13 @@ function SearchApt() {
             </div>
           </div>
           <div className="row">
-            <div class="input-field col s6">
+            <div className="input-field col s6">
               <input id="city" type="text" />
               <label htmlFor="city">City</label>
             </div>
             <div className="input-field col s6">
               <input id="state" type="text" />
-              <label for="state">State</label>
+              <label htmlFor="state">State</label>
             </div>
           </div>
           <div className="row">
