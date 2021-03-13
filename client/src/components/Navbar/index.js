@@ -7,9 +7,7 @@ function Navbar() {
   return (
     <nav>
       <div className="nav-wrapper">
-        <img id="logo" src={Logo} alt="logo" className="brand-logo center" />
-
-        <Link to="/" className="brand-logo center">
+        <Link to="/">
           <img id="logo" src={Logo} alt="logo" className="brand-logo center" />
         </Link>
         <ul id="nav-mobile" className="left hide-on-med-and-down">
