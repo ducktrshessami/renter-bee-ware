@@ -23,12 +23,45 @@ body {
 }
 
 .btn-large {
-  background-color: #0c4499;
+  background-color: #0c4499 !important;
   margin-right: 1rem;
 }
 .btn-large:hover, .btn-small:hover, .btn:hover {
-  background-color: #1277E1;
+  background-color: #1277E1 !important;
 }
+
+.datepicker-table td.is-selected {
+  background-color: #1277e1 !important;
+}
+
+.datepicker-date-display {
+  background-color: #1277e1 !important;
+}
+.datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done {
+  color: #1277e1 !important;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #0c4499 !important;
+    box-shadow: 0 1px 0 0 #0c4499 !important;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
+  color: #0c4499 !important;
+}
+
+.datepicker-table td.is-today {
+  color: #0c4499 !important;
+}
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #0c4499 !important;
+}
+
+button:focus {
+  outline: none;
+  background-color: #0c4499 !important;
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
