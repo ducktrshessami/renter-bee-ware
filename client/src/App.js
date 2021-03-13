@@ -15,21 +15,21 @@ import "materialize-css/dist/css/materialize.min.css";
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Switch>
-          <div className="App">
-            <Route exact path='/' component={Index}/>
+      <div className="App">
+        <Router>
+          <Switch>
+            <Route exact path='/' component={Index} />
             {/* <Route exact path='/login' component={Login}/> */}
             {/* <Route exact path='/sign-up' component={SignUp}/> */}
-            <Route exact path='/search-apt' component={SearchApt}/>
+            <Route exact path='/search-apt' component={SearchApt} />
             {/* <Route exact path='/member' component={Member}/> */}
-            <Route exact path='/write-review' component={WriteReview}/>
+            <Route exact path='/write-review' component={WriteReview} />
             {/* <Route exact path='/edit-review' component={EditReview}/> */}
-            <Route exact path='/results' component={Results}/> 
-          </div>
-        </Switch>
-        <Footer/>
-      </Router>
+            <Route exact path='/results' component={Results} />
+          </Switch>
+          <Footer />
+        </Router>
+      </div>
     );
   }
 }
