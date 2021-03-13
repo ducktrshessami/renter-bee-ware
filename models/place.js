@@ -27,7 +27,9 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     type: DataTypes.ARRAY(DataTypes.STRING),
     url: DataTypes.STRING,
-    photo: DataTypes.STRING
+    photo: DataTypes.STRING,
+    latitude: DataTypes.DECIMAL,
+    longitude: DataTypes.DECIMAL
   }, {
     sequelize,
     modelName: 'Place',
