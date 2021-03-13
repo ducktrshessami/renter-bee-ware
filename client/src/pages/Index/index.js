@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoImg from "../../images/logo-large-text.png";
+import LogoImg from "../../images/android-chrome-512x512.png";
 
 function Index() {
   return(
