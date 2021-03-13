@@ -1,9 +1,8 @@
+import { query } from "express";
 import React, { Component } from "react";
-import API from "client/src/utils/API";
+import API from "../../utils/API";
 
-
-
-
+query()
 
 function SearchApt() {
   return (
