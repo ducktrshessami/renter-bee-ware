@@ -6,7 +6,7 @@ render() {
       <div className="container">
         <div className="row">
           <form className="col s12">
-            <h4 className="col s12 center-align">Sign up</h4>
+            <h4 className="col s12 center-align">Sign Up</h4>
             <div className="row">
               <div className="input-field col s8 offset-s2">
                 <input id="first_name" type="text" className="validate"/>
