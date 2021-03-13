@@ -1,5 +1,30 @@
-import React, { Component } from 'react'; 
+import React, { Component } from 'react';
 import M from "materialize-css";
+import API from "../../utils/API";
+
+function getData() {
+  return {
+    streetAddress: document.getElementById("street-address").value,
+    aptNumber: document.getElementById("apt-number").value,
+    city: document.getElementById("city").value,
+    state: document.getElementById("state").value,
+    zipCode: document.getElementById("zip-code").value,
+    startDate: document.getElementById("start-date").value,
+    endDate: document.getElementById("end-date").value,
+    stars: document.getElementById("stars").value,
+    review: document.getElementById("review").value
+  };
+}
+
+function validate({ streetAddress, aptNumber, city, state, zipCode, startDate, endDate, stars }) {
+  return Boolean(streetAddress.match(/^[0-9]+ .+/i) && (aptNumber ? Number(aptNumber) !== NaN : true) && city && state && Number(zipCode) !== NaN && startDate && endDate && Number(stars) !== NaN);
+}
+
+function submit(event) {
+  let reviewData = getData();
+  event.preventDefault();
+  console.log(validate(reviewData));
+}
 
 class NewReview extends Component {
 
@@ -9,47 +34,47 @@ class NewReview extends Component {
   };
 
   render() {
-    return(
+    return (
       <div>
         <div className='container'>
           <div className="row">
-            <form className="col s12">
+            <form className="col s12" onSubmit={submit}>
               <h2 className="center-align">New Review</h2>
               <div className="row">
                 <div className="input-field col s6">
-                  <input id="street-address" type="text" className="validate"/>
+                  <input id="street-address" type="text" className="validate" />
                   <label htmlFor="street-address">Street Address</label>
                 </div>
                 <div className="input-field col s6">
-                  <input id="apt-number" type="text" className="validate"/>
+                  <input id="apt-number" type="text" className="validate" />
                   <label htmlFor="apt-number">Apt/Unit Number</label>
                 </div>
               </div>
               <div className="row">
                 <div className="input-field col s6">
-                  <input id="city" type="text" className="validate"/>
+                  <input id="city" type="text" className="validate" />
                   <label htmlFor="city">City</label>
                 </div>
                 <div className="input-field col s3">
-                  <input id="state" type="text" className="validate"/>
+                  <input id="state" type="text" className="validate" />
                   <label htmlFor="state">State</label>
                 </div>
                 <div className="input-field col s3">
-                  <input id="zip-code" type="text" className="validate"/>
+                  <input id="zip-code" type="text" className="validate" />
                   <label htmlFor="zip-code">Zip Code</label>
                 </div>
               </div>
               <div className="row">
                 <div className="input-field col s3">
-                <input type="text" className="datepicker"/>
+                  <input id="start-date" type="text" className="datepicker" />
                   <label htmlFor="dates-occupied">Start Date</label>
                 </div>
                 <div className="input-field col s3">
-                <input type="text" className="datepicker"/>
+                  <input id="end-date" type="text" className="datepicker" />
                   <label htmlFor="dates-occupied">End Date</label>
                 </div>
                 <div className="input-field col s6">
-                  <input id="stars" type="text" className="validate"/>
+                  <input id="stars" type="text" className="validate" />
                   <label htmlFor="stars">Stars (1-5)</label>
                 </div>
               </div>
@@ -60,7 +85,7 @@ class NewReview extends Component {
                 </div>
               </div>
               <div className="row">
-                <a href="/" className="waves-effect waves-light btn-large">Submit Review</a>
+                <button type="submit" className="waves-effect waves-light btn-large">Submit Review</button>
               </div>
             </form>
           </div>
