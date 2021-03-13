@@ -11,6 +11,7 @@ import WriteReview from './pages/WriteReview';
 import Results from './pages/Results';
 import Footer from './components/Footer';
 import "materialize-css/dist/css/materialize.min.css";
+import Navbar from "./components/Navbar";
 
 class App extends Component {
   render() {
