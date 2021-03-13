@@ -1,12 +1,5 @@
 'use strict';
 
-try {
-  require("dotenv").config();
-}
-catch {
-  console.log("Not using dotenv. Make sure environment variables are set");
-}
-
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');

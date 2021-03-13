@@ -2,6 +2,13 @@ const express = require("express");
 const path = require("path");
 const db = require("./models");
 
+try {
+  require("dotenv").config();
+}
+catch {
+  console.log("Not using dotenv. Make sure environment variables are set");
+}
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 
