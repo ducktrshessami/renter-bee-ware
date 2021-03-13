@@ -11,11 +11,13 @@ import WriteReview from './pages/WriteReview';
 import EditReview from './pages/EditReview';
 import Results from './pages/Results';
 import "materialize-css/dist/css/materialize.min.css";
+import Navbar from "./components/Navbar";
 
 class App extends Component {
   render() {
     return (
       <Router>
+        <Navbar></Navbar>
         <Switch>
           <div className="App">
             <Route exact path='/' component={Index}/>
