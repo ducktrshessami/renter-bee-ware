@@ -59,6 +59,9 @@ class NewReview extends Component {
                   <label htmlFor="review">Review</label>
                 </div>
               </div>
+              <div className="row">
+                <a href="/" className="waves-effect waves-light btn-large">Submit Review</a>
+              </div>
             </form>
           </div>
         </div>
