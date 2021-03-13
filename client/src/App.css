@@ -93,6 +93,20 @@ button:focus {
 	background-color: #0c4499 !important;
 }
 
+#logo{
+  size: 3rem;
+  width: 30%;
+}
+nav {
+  background-color: #c1edfe !important;
+}
+nav ul a {
+  color: black !important;
+}
+.page-footer {
+  background-color: #1277e1 !important;
+}
+
 @keyframes App-logo-spin {
 	from {
 		transform: rotate(0deg);
