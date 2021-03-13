@@ -16,7 +16,7 @@ function Index() {
               </div>
               <span class="card-title">Read reviews</span>
               <div class="card-content">
-                <p>Read reviews posted by past renters on the palaces you are interested in.</p>
+                <p>Search for reviews of the palaces you are interested in.</p>
               </div>
               <div class="card-action">
               <a href="/search-apt" className="waves-effect waves-light btn-large">Search</a>
