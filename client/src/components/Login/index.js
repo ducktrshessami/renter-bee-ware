@@ -2,6 +2,11 @@ import React from 'react';
 
 function Login() {
 
+  function handleInputChange(e) {
+    e.preventDefault();
+    
+  }
+
   return(
     <div className='container'>
     <div className="row">
@@ -24,8 +29,6 @@ function Login() {
     </div>
   </div>
   )
-}
-
 }
 
 export default Login;
