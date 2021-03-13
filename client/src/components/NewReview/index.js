@@ -17,7 +17,7 @@ function getData() {
 }
 
 function validate({ streetAddress, aptNumber, city, state, zipCode, startDate, endDate, stars }) {
-  return Boolean(streetAddress.match(/^[0-9]+ .+/i) && (aptNumber ? Number(aptNumber) !== NaN : true) && city && state && Number(zipCode) !== NaN && startDate && endDate && Number(stars) !== NaN);
+  return Boolean(streetAddress.match(/^[0-9]+ .+/i) && (aptNumber ? !Number.isNan(Number(aptNumber)) : true) && city && state && !Number.isNan(Number(zipCode)) && startDate && endDate && !Number.isNaN(Number(stars)));
 }
 
 function submit(event) {
@@ -28,7 +28,7 @@ function submit(event) {
       .then(res => res.candidates[0])
       .then(place => API.newReview({ ...reviewData, ...place }))
       .then(() => {
-        location.pathname = "/";
+        window.location.pathname = "/";
       })
       .catch(console.error);
   }
