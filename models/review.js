@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model, UUIDV4
+  Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Review extends Model {
@@ -17,13 +17,19 @@ module.exports = (sequelize, DataTypes) => {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
-      defaultValue: UUIDV4
+      defaultValue: DataTypes.UUIDV4
     },
     stars: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    message: DataTypes.STRING
+    message: DataTypes.STRING,
+    startDate: {
+      type: DataTypes.DATEONLY
+    },
+    endDate: {
+      type: DataTypes.DATEONLY
+    }
   }, {
     sequelize,
     modelName: 'Review',
