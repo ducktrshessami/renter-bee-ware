@@ -9,7 +9,7 @@ function Footer() {
             <h5 className="white-text">Renter Bee-Ware</h5>
             <a className="white-text" href="https://github.com/ducktrshessami/renter-bee-ware" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
           </div>
-          <div className="col l4 offset-l2 s12">
+          <div className="col l6 s12">
             <h5 className="white-text">Team Members</h5>
               <ul>
                 <li><a className="grey-text text-lighten-3" href="https://github.com/ducktrshessami" target="_blank" rel="noopener noreferrer">Josh Wee</a></li>
