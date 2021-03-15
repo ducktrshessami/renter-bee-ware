@@ -3,7 +3,10 @@ import NewReview from "../../components/NewReview"
 
 function WriteReview() {
     return(
-            <NewReview/>
+            <div className="container">
+                <h2 className="center-align">New Review</h2>
+                <NewReview/>
+            </div>
     );
 }
 
