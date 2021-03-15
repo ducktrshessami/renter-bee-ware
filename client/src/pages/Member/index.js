@@ -24,8 +24,8 @@ function Member() {
           <span className="card-title">123 Fake Street Springfield </span>
           <p>Dates Occupied: 1/1/2000- 1/1/2020</p>
           <p>Review: Real shithole</p>
-          <button className="btn-large waves-effect">Edit Review</button>
-          <button className="btn-large waves-effect">Delete Review</button>
+          <button className="btn-large waves-effect waves-light">Edit Review</button>
+          <button className="btn-large waves-effect waves-light">Delete Review</button>
         </div>
       </div>
     </div>
