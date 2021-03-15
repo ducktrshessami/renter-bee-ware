@@ -47,7 +47,6 @@ class NewReview extends Component {
         <div className='container'>
           <div className="row">
             <form className="col s12" onSubmit={submit}>
-              <h2 className="center-align">New Review</h2>
               <div className="row">
                 <div className="input-field col s6">
                   <input id="street-address" type="text" className="validate" />
