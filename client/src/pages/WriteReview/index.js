@@ -3,9 +3,7 @@ import NewReview from "../../components/NewReview"
 
 function WriteReview() {
     return(
-            <NewReview>
-
-            </NewReview>
+            <NewReview/>
     );
 }
 
