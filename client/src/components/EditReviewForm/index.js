@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class EditReview extends Component {
+class EditReviewForm extends Component {
 
   componentDidMount() {
     var elems = document.querySelectorAll('.datepicker');
@@ -68,4 +68,4 @@ class EditReview extends Component {
   }  
 }
 
-export default EditReview;
+export default EditReviewForm;
