@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 class EditReview extends Component {
+  render() {
   return (
     <div>
       <div className='container'>
@@ -57,7 +58,8 @@ class EditReview extends Component {
         </div>
       </div>
     </div>
-  )  
+  )
+  }  
 
 }
 
