@@ -1,40 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import M from "materialize-css";
-import API from "../../utils/API";
 
-function getData() {
-  return {
-    streetAddress: document.getElementById("street-address").value.trim(),
-    aptNumber: document.getElementById("apt-number").value.trim(),
-    city: document.getElementById("city").value.trim(),
-    state: document.getElementById("state").value.trim(),
-    zipCode: document.getElementById("zip-code").value.trim(),
-    startDate: document.getElementById("start-date").value.trim(),
-    endDate: document.getElementById("end-date").value.trim(),
-    stars: document.getElementById("stars").value.trim(),
-    message: document.getElementById("review").value.trim()
-  };
-}
-
-function validate({ streetAddress, aptNumber, city, state, zipCode, startDate, endDate, stars }) {
-  return Boolean(streetAddress.match(/^[0-9]+ .+/i) && (aptNumber ? !Number.isNan(Number(aptNumber)) : true) && city && state && !Number.isNan(Number(zipCode)) && startDate && endDate && !Number.isNaN(Number(stars)));
-}
-
-function submit(event) {
-  let reviewData = getData();
-  event.preventDefault();
-  if (validate(reviewData)) {
-    API.findPlaceFromText(`${reviewData.streetAddress}, ${reviewData.city}, ${reviewData.state} ${reviewData.zipCode}`)
-      .then(res => res.candidates[0])
-      .then(place => API.newReview({ ...reviewData, ...place }))
-      .then(() => {
-        window.location.pathname = "/";
-      })
-      .catch(console.error);
-  }
-}
-
-class NewReview extends Component {
+class EditReviewForm extends Component {
 
   componentDidMount() {
     var elems = document.querySelectorAll('.datepicker');
@@ -46,7 +13,7 @@ class NewReview extends Component {
       <div>
         <div className='container'>
           <div className="row">
-            <form className="col s12" onSubmit={submit}>
+            <form className="col s12">
               <div className="row">
                 <div className="input-field col s6">
                   <input id="street-address" type="text" className="validate" />
@@ -99,7 +66,7 @@ class NewReview extends Component {
         </div>
       </div>
     )
-  }
+  }  
 }
 
-export default NewReview;
+export default EditReviewForm;

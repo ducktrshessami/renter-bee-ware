@@ -1,11 +1,6 @@
 import React from 'react';
 
-function Login() {
-
-  function handleInputChange(e) {
-    e.preventDefault();
-    
-  }
+function LoginForm() {
 
   return(
     <div className='container'>
@@ -24,11 +19,11 @@ function Login() {
             <label htmlFor="password">Password</label>
           </div>
         </div>
-        <button className="btn waves-effect waves-light col offset-s2" type="submit" name="action">Log In</button>
+        <button className="btn waves-effect waves-light col offset-s2 btn-large" type="submit" name="action">Log In</button>
       </form>
     </div>
   </div>
   )
 }
 
-export default Login;
+export default LoginForm;

@@ -31,7 +31,7 @@ function SignupForm() {
                 <label htmlFor="password">Password</label>
               </div>
             </div>
-            <button className="btn waves-effect waves-light col offset-s2" type="submit" name="action">Sign up</button>
+            <button className="btn waves-effect waves-light col offset-s2 btn-large" type="submit" name="action">Sign up</button>
           </form>
         </div>
       </div>
