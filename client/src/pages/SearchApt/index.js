@@ -63,9 +63,7 @@ function SearchApt() {
         </form>
       </div>
       <div className="row">
-        <div className="col s12">{searchResults.map(item => <ResultsCard
-          {...item}
-        />)}</div>
+        <div className="col s12">{searchResults.map(item => <ResultsCard name={item.name} address={item.formatted_address} placeId={item.place_id} />)}</div>
       </div>
     </div>
   );
