@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import M from "materialize-css";
 import API from "../../utils/API";
+// import StarRating from "../StarRating";
 
 function getData() {
   return {
