@@ -14,9 +14,7 @@ function getData() {
 function search(event) {
   const searchData = getData();
   event.preventDefault();
-  API.findPlaceFromText(
-    `${searchData.streetAddress}, ${seachData.aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`
-  );
+    API.findPlaceFromText(`${searchData.streetAddress}, ${searchData.aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`)
 }
 
 function SearchApt() {
