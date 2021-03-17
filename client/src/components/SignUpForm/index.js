@@ -31,7 +31,12 @@ function SignupForm() {
                 <label htmlFor="password">Password</label>
               </div>
             </div>
-            <button className="btn waves-effect waves-light col offset-s2 btn-large" type="submit" name="action">Sign up</button>
+            <div className="row">
+              <button className="btn waves-effect waves-light col offset-s2 btn-large" type="submit" name="action">Sign up</button>
+            </div>
+            <div className="row">
+              <a href="/login">Log In</a>
+            </div>
           </form>
         </div>
       </div>
