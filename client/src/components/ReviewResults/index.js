@@ -5,10 +5,11 @@ class ReviewResults extends Component {
     return(
       <div className="row">
         <div className="col s12 m6">
-          <div className="card blue-grey darken-1">
-            <div className="card-content white-text">
+          <div className="card">
+            <div className="card-content">
               <span className="card-title">Address</span>
               <p>Dates Occupied:</p>
+              <p>Stars: </p>
               <p>Review:</p>
             </div>
           </div>
