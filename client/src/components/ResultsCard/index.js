@@ -20,7 +20,7 @@ export default function ResultsCard(props) {
                 <p className={props.address}>123 Main</p>
               </div>
               <div className="card-action">
-                <a href={props.link}></a>
+                <a href=""></a>
               </div>
             </div>
           </div>
