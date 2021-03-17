@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import API from "../../utils/API";
-
+import ResultsCard from "../../components/ResultsCard";
 
 function getData() {
   return {
@@ -11,14 +11,18 @@ function getData() {
     zipCode: document.getElementById("zip-code").value.trim(),
   };
 }
-function search(event) {
-  const searchData = getData();
-  event.preventDefault();
-    API.findPlaceFromText(`${searchData.streetAddress}, ${searchData.aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`)
-}
-
 
 function SearchApt() {
+  const [searchResults, setSearchResults] = useState([]);
+  function search(event) {
+    const searchData = getData();
+    event.preventDefault();
+    API.findPlaceFromText(
+      `${searchData.streetAddress}, ${searchData.aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`
+    )
+      .then((res) => res.candidates)
+      .then(setSearchResults);
+  }
   return (
     <div className="container">
       <div className="row">
@@ -35,30 +39,31 @@ function SearchApt() {
             </div>
           </div>
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s4">
               <input id="city" type="text" />
               <label htmlFor="city">City</label>
             </div>
-            <div className="input-field col s6">
+            <div className="input-field col s4">
               <input id="state" type="text" />
               <label htmlFor="state">State</label>
             </div>
-          </div>
-          <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s4">
               <input id="zip-code" type="text" />
               <label htmlFor="zip-code">Zip Code</label>
             </div>
           </div>
           <button
-            class="btn waves-effect waves-light"
+            className="btn waves-effect waves-light"
             type="submit"
             name="action"
           >
             Search
-            <i class="material-icons right"></i>
+            <i className="material-icons right"></i>
           </button>
         </form>
+      </div>
+      <div className="row">
+        <div className="col s12">{searchResults.map(item => <ResultsCard name={item.name} address={item.formatted_address} placeId={item.place_id} />)}</div>
       </div>
     </div>
   );
