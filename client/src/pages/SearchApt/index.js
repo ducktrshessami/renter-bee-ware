@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-
+import ResultsCard from "../../components/ResultsCard";
 
 function getData() {
   return {
@@ -14,9 +14,10 @@ function getData() {
 function search(event) {
   const searchData = getData();
   event.preventDefault();
-    API.findPlaceFromText(`${searchData.streetAddress}, ${seachData.aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`)
+  API.findPlaceFromText(
+    `${searchData.streetAddress}, ${seachData.aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`
+  );
 }
-
 
 function SearchApt() {
   return (
@@ -51,12 +52,12 @@ function SearchApt() {
             </div>
           </div>
           <button
-            class="btn waves-effect waves-light"
+            className="btn waves-effect waves-light"
             type="submit"
             name="action"
           >
             Search
-            <i class="material-icons right"></i>
+            <i className="material-icons right"></i>
           </button>
         </form>
       </div>
