@@ -7,7 +7,7 @@ function LoginForm() {
     <motion.div
       initial={{ y: -500}}
       animate={{ y: 0}}
-      transition={{ duration: .5}}
+      transition={{ duration: .75}}
       className='container'>
       <div className="row">
         <form className="col s12">
