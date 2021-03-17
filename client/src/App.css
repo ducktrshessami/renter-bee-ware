@@ -99,7 +99,10 @@ button:focus {
 
 #logo{
   size: 3rem;
-  width: 30%;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 nav {
   background-color: #c1edfe !important;

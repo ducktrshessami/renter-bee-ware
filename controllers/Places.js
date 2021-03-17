@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 
 module.exports = function Places(apikey) {
     function findPlaceFromText(query) {
-        return fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=${apikey}&input=${query}&inputtype=textquery&fields=place_id,formatted_address,name,types,geometry`)
+        return fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=${apikey}&input=${query}&inputtype=textquery&fields=place_id,formatted_address,name,types,geometry,photos`)
             .then(res => res.json());
     }
 
@@ -25,7 +25,7 @@ module.exports = function Places(apikey) {
     }
 
     function details(place_id, sessiontoken) {
-        let url = `https://maps.googleapis.com/maps/api/place/details/json?key=${apikey}&place_id=${place_id}&fields=place_id,formatted_address,name,type,business_status,url,photo`;
+        let url = `https://maps.googleapis.com/maps/api/place/details/json?key=${apikey}&place_id=${place_id}&fields=place_id,formatted_address,name,type,business_status,url,photos`;
         if (sessiontoken) {
             url += `&sessiontoken=${sessiontoken}`;
         }
