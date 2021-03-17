@@ -6,7 +6,9 @@ import "./style.css";
 function Index() {
   return(
     <React.Fragment>
-    <div className= "bkgimg diDvWr"></div>
+    <div className= "bkgimg ecbBls">
+      <div className="diDvWr"></div>
+    </div>
     <h3>Welcome Renter!</h3>
     <main className="container">
       <div className="row">

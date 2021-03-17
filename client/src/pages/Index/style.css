@@ -20,3 +20,17 @@
     top: 0px;
     left: 0px;
 }
+
+@media only screen and (min-width: 852px)
+.ecbBLs {
+    margin-top: -80px;
+    height: 584px;
+}
+
+.ecbBLs{
+width: 100%;
+z-index: 100;
+background-color: rgb(66,136,221);
+margin-top: -60px;
+height: 440px;
+}
