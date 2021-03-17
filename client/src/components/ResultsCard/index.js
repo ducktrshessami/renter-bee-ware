@@ -5,19 +5,19 @@ import React, { Component } from "react";
 export default function ResultsCard(props) {
   return (
     <div className="container">
-      <div className="row">
-        <div className="col s12 m7">
-          <h2 className="header">Horizontal Card</h2>
-          <div className="card horizontal">
+      <div className="row valign-wrapper">
+        <div className="col s7 offset-s3 valign">
+          <h3 className="header">Search Results</h3>
+          <div className="card horizontal light-blue lighten-4">
             <div className="card-image">
-              <img src={props.image} />
+              <img/>
             </div>
             <div className="card-stacked">
               <div className="card-content">
-                <p className={props.cardContent}>
-                  I am a very simple card. I am good at containing small bits of
-                  information.
+                <p className={props.name}>
+                  emily
                 </p>
+                <p className={props.address}>123 Main</p>
               </div>
               <div className="card-action">
                 <a href={props.link}></a>
