@@ -10,8 +10,8 @@ import WriteReview from './pages/WriteReview';
 import EditReview from './pages/EditReview';
 import Results from './pages/Results';
 import Footer from './components/Footer';
-import "materialize-css/dist/css/materialize.min.css";
 import Navbar from "./components/Navbar";
+import "materialize-css/dist/css/materialize.min.css";
 
 class App extends Component {
   render() {
