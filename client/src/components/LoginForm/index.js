@@ -19,7 +19,12 @@ function LoginForm() {
             <label htmlFor="password">Password</label>
           </div>
         </div>
-        <button className="btn waves-effect waves-light col offset-s2 btn-large" type="submit" name="action">Log In</button>
+        <div className="row">
+          <button className="btn waves-effect waves-light col offset-s2 btn-large" type="submit" name="action">Log In</button>
+        </div>
+        <div className="row">
+          <a href="/sign-up">Sign Up</a>
+        </div>
       </form>
     </div>
   </div>
