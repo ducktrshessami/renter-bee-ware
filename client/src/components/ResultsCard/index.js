@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 
 
-function ResultsCard(props) {
+export default function ResultsCard(props) {
   return (
     <div className="container">
       <div className="row">

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import API from "../../utils/API";
 import ResultsCard from "../../components/ResultsCard";
 
@@ -11,13 +11,18 @@ function getData() {
     zipCode: document.getElementById("zip-code").value.trim(),
   };
 }
-function search(event) {
-  const searchData = getData();
-  event.preventDefault();
-    API.findPlaceFromText(`${searchData.streetAddress}, ${searchData.aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`)
-}
 
 function SearchApt() {
+  const [searchResults, setSearchResults] = useState([]);
+  function search(event) {
+    const searchData = getData();
+    event.preventDefault();
+    API.findPlaceFromText(
+      `${searchData.streetAddress}, ${searchData.aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`
+    )
+      .then((res) => res.candidates)
+      .then(setSearchResults);
+  }
   return (
     <div className="container">
       <div className="row">
@@ -34,17 +39,15 @@ function SearchApt() {
             </div>
           </div>
           <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s4">
               <input id="city" type="text" />
               <label htmlFor="city">City</label>
             </div>
-            <div className="input-field col s6">
+            <div className="input-field col s4">
               <input id="state" type="text" />
               <label htmlFor="state">State</label>
             </div>
-          </div>
-          <div className="row">
-            <div className="input-field col s6">
+            <div className="input-field col s4">
               <input id="zip-code" type="text" />
               <label htmlFor="zip-code">Zip Code</label>
             </div>
@@ -58,6 +61,11 @@ function SearchApt() {
             <i className="material-icons right"></i>
           </button>
         </form>
+      </div>
+      <div className="row">
+        <div className="col s12">{searchResults.map(item => <ResultsCard
+          {...item}
+        />)}</div>
       </div>
     </div>
   );
