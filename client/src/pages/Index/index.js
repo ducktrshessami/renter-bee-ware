@@ -1,23 +1,14 @@
 import React from 'react';
 import Placeholder from "../../images/Buy_a_home_placeholder.png";
 import BannerImage from "../../images/zillow-background-image.jpg";
-
-import Logo from "../../images/logo-text.png";
+import "./style.css";
 
 function Index() {
   return(
+    <React.Fragment>
+    <div className= "bkgimg diDvWr"></div>
+    <h3>Welcome Renter!</h3>
     <main className="container">
-      {/* <div className="row">
-        <img src={BannerImage}></img>
-      </div> */}
-      <div className="row">
-        <div className="col s12 m6 l6">
-        <img id="logo" src={Logo}>
-        </img>
-        </div>
-      </div>
-      
-      <h3>Welcome Renter!</h3>
       <div className="row">
         <div className="col s12 m2 l2"></div>
         <div className="col s12 m10 l8">
@@ -60,9 +51,8 @@ function Index() {
         <div className="col s12 m2 l2"></div>
       </div>       
     </main>
-
+    </React.Fragment>
   );
-
 }
 
 export default Index;
