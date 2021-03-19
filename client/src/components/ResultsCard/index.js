@@ -1,10 +1,24 @@
 import React, { Component } from "react";
+import API from "../../utils/API";
+import StarRating from "../StarRating";
 
 const placeholderImage = "https://via.placeholder.com/100";
 
+function getAverageRating(Place) {
+
+}
+
 export default class ResultsCard extends Component {
+  state = {};
+
   componentDidMount() {
-    // fetch("/api/")
+    API.getReviewsFromPlaceId(this.props.place_id)
+      .then(res => {
+        if (res) {
+          this.setState({ rating: getAverageRating(res) });
+        }
+      })
+      .catch(console.error);
   }
 
   writeReview() {
@@ -25,6 +39,7 @@ export default class ResultsCard extends Component {
               </div>
               <div className="card-stacked">
                 <div className="card-content">
+                  {this.state.rating ? <StarRating rating={this.state.rating} static={true} /> : undefined}
                   <p>{this.props.name}</p>
                   <p>{this.props.address}</p>
                 </div>
