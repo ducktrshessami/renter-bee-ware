@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 const API = {
     newReview: function (reviewData) {
         return fetch("/api/review", {
