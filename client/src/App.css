@@ -2,6 +2,21 @@
 	text-align: center;
 }
 
+/* The hero image */
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: url("https://www.zillowstatic.com/s3/homepage/static/_Desktop_Overlay_ReadyChange_HC@2x.jpg");
+
+  /* Set a specific height */
+  height: 450px;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
 .App-logo {
 	animation: App-logo-spin infinite 20s linear;
 	height: 80px;

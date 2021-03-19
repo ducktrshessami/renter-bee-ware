@@ -3,14 +3,15 @@ import { motion } from 'framer-motion';
 
 function Member() {
   return (
-    <div className='container'>
-    <div className='card'>
+    <div className="center-align">
+    <div className='hero-image center-align valign-center'>
       <motion.h3 
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         transition={{duration: 3}}
-        className="left-align">Welcome, Stranger</motion.h3>
+        className="center-align" style={{color: "white"}}>Welcome, Stranger</motion.h3>
     </div>
+    <div className="container">
     <div className='row'>
       <div className='row'>
         <div className="col">
@@ -35,6 +36,7 @@ function Member() {
         </div>
       </div>
     </div>
+  </div>
   </div>
   </div>
   )
