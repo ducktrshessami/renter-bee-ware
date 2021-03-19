@@ -1,6 +1,18 @@
 const db = require("../models");
 
 module.exports = function (app) {
+    app.get("/api/review/:place_id", function (req, res) {
+        db.Place.findOne({
+            where: { place_id: req.params.place_id },
+            include: db.Review
+        })
+            .then(data => res.status(200).json(data))
+            .catch(err => {
+                console.error(err);
+                res.status(500).end();
+            });
+    });
+
     app.post("/api/review", function (req, res) {
         db.Place.findOne({ where: { place_id: req.body.place_id } })
             .then(async place => {
