@@ -26,6 +26,9 @@ const API = {
         }
         return fetch(url)
             .then(res => res.json());
+    },
+    photoUrl: function (photo_reference) {
+        return "/api/photo/" + photo_reference;
     }
 };
 
