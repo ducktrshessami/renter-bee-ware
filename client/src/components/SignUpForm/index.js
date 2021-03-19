@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { use } from 'passport';
 
 function SignupForm() {
+
+  const [registerFirstName, setRegisterFirstName] = useState("");
+  const [registerLastName, setRegisterLastName] = useState("");
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
   
   return(
     <motion.div
@@ -15,7 +21,7 @@ function SignupForm() {
             <h4 className="col s12 center-align">Sign Up</h4>
             <div className="row">
               <div className="input-field col s8 offset-s2">
-                <input id="first_name" type="text" className="validate"/>
+                <input id="first_name" type="text" className="validate" onChange={e => setRegisterFirstName(e.target.value)}/>
                 <label htmlFor="first_name">First Name</label>
               </div>
             </div>
