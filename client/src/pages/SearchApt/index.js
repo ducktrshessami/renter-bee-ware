@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import API from "../../utils/API";
-
+import ResultsCard from "../../components/ResultsCard";
 
 function getData() {
   return {
@@ -11,14 +11,18 @@ function getData() {
     zipCode: document.getElementById("zip-code").value.trim(),
   };
 }
-function search(event) {
-  const searchData = getData();
-  event.preventDefault();
-    API.findPlaceFromText(`${searchData.streetAddress}, ${searchData.aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`)
-}
-
 
 function SearchApt() {
+  const [searchResults, setSearchResults] = useState([]);
+  function search(event) {
+    const searchData = getData();
+    event.preventDefault();
+    API.findPlaceFromText(
+      `${searchData.streetAddress}, ${searchData.aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`
+    )
+      .then((res) => res.candidates)
+      .then(setSearchResults);
+  }
   return (
     <div className="container">
     <div className="container">
@@ -53,6 +57,9 @@ function SearchApt() {
             <button type="submit" className="waves-effect waves-light btn-large" name="action"> Search <i class="material-icons right"></i></button>
           </div>
         </form>
+      </div>
+      <div className="row">
+        <div className="col s12">{searchResults.map(item => <ResultsCard name={item.name} address={item.formatted_address} placeId={item.place_id} />)}</div>
       </div>
     </div>
     </div>

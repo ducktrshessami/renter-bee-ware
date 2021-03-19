@@ -1,10 +1,15 @@
 import React from "react";
+import { motion } from 'framer-motion';
 
 function Member() {
   return (
     <div className='container'>
     <div className='card'>
-      <h3 className="left-align">Welcome, Stranger</h3>
+      <motion.h3 
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        transition={{duration: 3}}
+        className="left-align">Welcome, Stranger</motion.h3>
     </div>
     <div className='row'>
       <div className='row'>

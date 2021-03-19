@@ -1,11 +1,17 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 function SignupForm() {
   
   return(
-    <div className="container">
+    <motion.div
+      initial={{ y: -800}}
+      animate={{ y: 0}}
+      transition={{ duration: .75}}
+      className="container">
         <div className="row">
           <form className="col s12">
+            <div className="card z-depth-2">
             <h4 className="col s12 center-align">Sign Up</h4>
             <div className="row">
               <div className="input-field col s8 offset-s2">
@@ -31,10 +37,16 @@ function SignupForm() {
                 <label htmlFor="password">Password</label>
               </div>
             </div>
-            <button className="btn waves-effect waves-light col offset-s2 btn-large" type="submit" name="action">Sign up</button>
+            <div className="row">
+              <button className="btn waves-effect waves-light col offset-s2 btn-large" type="submit" name="action">Sign up</button>
+            </div>
+            <div className="row">
+              <a href="/login">Log In</a>
+            </div>
+            </div>
           </form>
         </div>
-      </div>
+      </motion.div>
   )
 }
 

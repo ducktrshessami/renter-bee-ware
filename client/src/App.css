@@ -88,6 +88,10 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 	color: #0c4499 !important;
 }
 
+.collection-item.center-align {
+	color: #1277e1 !important;
+}
+
 button:focus {
 	outline: none;
 	background-color: #0c4499 !important;
@@ -109,6 +113,7 @@ nav ul a {
 .page-footer {
   background-color: #1277e1 !important;
 }
+
 
 @keyframes App-logo-spin {
 	from {
