@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import ResultsCard from "../../components/ResultsCard";
 
@@ -12,16 +13,10 @@ function getData() {
   };
 }
 
-function parseResult(resultData) {
-  let image;
-  if (resultData.photos) {
-    image = API.photoUrl(resultData.photos[0].photo_reference);
-  }
-  return <ResultsCard key={resultData.place_id} placeId={resultData.place_id} name={resultData.name} photo={image} address={resultData.formatted_address} />
-}
-
 function SearchApt() {
+  const history = useHistory();
   const [searchResults, setSearchResults] = useState([]);
+
   function search(event) {
     const searchData = getData();
     event.preventDefault();
@@ -31,6 +26,15 @@ function SearchApt() {
       .then((res) => res.candidates)
       .then(setSearchResults);
   }
+
+  function parseResult(resultData) {
+    let image;
+    if (resultData.photos) {
+      image = API.photoUrl(resultData.photos[0].photo_reference);
+    }
+    return <ResultsCard key={resultData.place_id} placeId={resultData.place_id} name={resultData.name} photo={image} address={resultData.formatted_address} history={history} />
+  }
+
   return (
     <div className="container">
       <div className="container">
@@ -62,7 +66,7 @@ function SearchApt() {
               </div>
             </div>
             <div className="row">
-              <button type="submit" className="waves-effect waves-light btn-large" name="action"> Search <i class="material-icons right"></i></button>
+              <button type="submit" className="waves-effect waves-light btn-large" name="action">Search</button>
             </div>
           </form>
         </div>

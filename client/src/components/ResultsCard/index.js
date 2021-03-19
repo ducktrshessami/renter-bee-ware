@@ -7,6 +7,12 @@ export default class ResultsCard extends Component {
     // fetch("/api/")
   }
 
+  writeReview() {
+    let [street, city, state_zip, country] = this.props.address.split(",").map(part => part.trim());
+    let [state, zip] = state_zip.split(" ").map(part => part.trim());
+    this.props.history.push(`/write-review?street=${street}&city=${city}&state=${state}&zip=${zip}&country=${country}`);
+  }
+
   render() {
     return (
       <div className="container">
@@ -27,9 +33,9 @@ export default class ResultsCard extends Component {
                     className="btn waves-effect waves-light"
                     type="submit"
                     name="action"
+                    onClick={() => this.writeReview()}
                   >
                     Write Review
-                  <i className="material-icons right"></i>
                   </button>
                 </div>
               </div>
