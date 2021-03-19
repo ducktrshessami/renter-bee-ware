@@ -33,46 +33,43 @@ function SearchApt() {
   }
   return (
     <div className="container">
+    <div className="container">
       <div className="row">
         <form className="col s12" onSubmit={search}>
           <h2 className="center-align">Search Apartment</h2>
           <div className="row">
             <div className="input-field col s6">
-              <input id="street-address" type="text" />
+              <input id="street-address" type="text" className="validate"/>
               <label htmlFor="street-address">Street Address</label>
             </div>
             <div className="input-field col s6">
-              <input id="apt-number" type="text" />
-              <label htmlFor="apt-number">Apt Number</label>
+              <input id="apt-number" type="text" className="validate"/>
+              <label htmlFor="apt-number">Apt/Unit Number</label>
             </div>
           </div>
           <div className="row">
-            <div className="input-field col s4">
-              <input id="city" type="text" />
+            <div className="input-field col s6">
+              <input id="city" type="text" className="validate"/>
               <label htmlFor="city">City</label>
             </div>
-            <div className="input-field col s4">
-              <input id="state" type="text" />
+            <div className="input-field col s3">
+              <input id="state" type="text" className="validate"/>
               <label htmlFor="state">State</label>
             </div>
-            <div className="input-field col s4">
-              <input id="zip-code" type="text" />
+            <div className="input-field col s3">
+              <input id="zip-code" type="text" className="validate"/>
               <label htmlFor="zip-code">Zip Code</label>
             </div>
           </div>
-          <button
-            className="btn waves-effect waves-light"
-            type="submit"
-            name="action"
-          >
-            Search
-            <i className="material-icons right"></i>
-          </button>
+          <div className="row">
+            <button type="submit" className="waves-effect waves-light btn-large" name="action"> Search <i class="material-icons right"></i></button>
+          </div>
         </form>
       </div>
       <div className="row">
         <div className="col s12">{searchResults.map(parseResult)}</div>
       </div>
+    </div>
     </div>
   );
 }

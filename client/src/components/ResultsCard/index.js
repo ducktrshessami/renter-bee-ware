@@ -9,7 +9,7 @@ export default class ResultsCard extends Component {
 
   render() {
     return (
-      <div className="container" >
+      <div className="container">
         <div className="row valign-wrapper">
           <div className="col s7 offset-s3 valign">
             <h3 className="header">Search Results</h3>
@@ -23,7 +23,14 @@ export default class ResultsCard extends Component {
                   <p>{this.props.address}</p>
                 </div>
                 <div className="card-action">
-                  <a href=""></a>
+                  <button
+                    className="btn waves-effect waves-light"
+                    type="submit"
+                    name="action"
+                  >
+                    Write Review
+                  <i className="material-icons right"></i>
+                  </button>
                 </div>
               </div>
             </div>
