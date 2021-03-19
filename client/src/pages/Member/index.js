@@ -24,7 +24,7 @@ function Member() {
       </div>
     </div>
     <div className="col s12 l9">
-      <div className="card z-depth-2">
+      <div className="card z-depth-2 hoverable">
         <div className="card-content">
           <span className="card-title">123 Fake Street Springfield </span>
           <p>Dates Occupied: 1/1/2000- 1/1/2020</p>
