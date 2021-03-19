@@ -9,7 +9,7 @@ function Index() {
     <div className= "bkgimg ecbBls">
       <div className="diDvWr"></div>
     </div>
-    <h3>Welcome Renter!</h3>
+    <h2>Welcome Renter!</h2>
     <main className="container">
       <div className="row">
         <div className="col s12 m2 l2"></div>
