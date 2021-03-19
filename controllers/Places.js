@@ -33,10 +33,16 @@ module.exports = function Places(apikey) {
             .then(res => res.json());
     }
 
+    function photo(photo_reference) {
+        return fetch(`https://maps.googleapis.com/maps/api/place/photo?key=${apikey}&photoreference=${photo_reference}`)
+            .then(res => res.body);
+    }
+
     return {
         findPlaceFromText,
         nearbySearch,
         textSearch,
-        details
+        details,
+        photo
     };
 };
