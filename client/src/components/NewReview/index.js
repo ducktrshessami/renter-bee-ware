@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import M from "materialize-css";
 import API from "../../utils/API";
-// import StarRating from "../StarRating";
+import StarRating from "../StarRating";
 
 function getData() {
   return {
@@ -41,11 +41,16 @@ class NewReview extends Component {
     var elems = document.querySelectorAll('.datepicker');
     var instances = M.Datepicker.init(elems);
   };
+  // componentDidMount() {
+  //   var element = ReactDOM.findDOMNode(this.refs.dropdown)
+  // };
+  
+  // var states = [ "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" ];
 
   render() {
     return (
       <div>
-        <div className='container'>
+        <div className="container">
           <div className="row">
             <form className="col s12" onSubmit={submit}>
               <div className="row">
@@ -74,21 +79,22 @@ class NewReview extends Component {
               </div>
               <div className="row">
                 <div className="input-field col s3">
-                  <input id="start-date" type="text" className="datepicker" />
+                  <input id="start-date" type="text" className="datepicker validate" />
                   <label htmlFor="dates-occupied">Start Date</label>
                 </div>
                 <div className="input-field col s3">
-                  <input id="end-date" type="text" className="datepicker" />
+                  <input id="end-date" type="text" className="datepicker validate" />
                   <label htmlFor="dates-occupied">End Date</label>
                 </div>
                 <div className="input-field col s6">
-                  <input id="stars" type="text" className="validate" />
+                  <StarRating></StarRating>
+                  {/* <input id="stars" type="text" className="StarRating validate" /> */}
                   <label htmlFor="stars">Stars (1-5)</label>
                 </div>
               </div>
               <div className="row">
                 <div className="input-field col s12">
-                  <textarea id="review" className="materialize-textarea"></textarea>
+                  <textarea id="review" className="materialize-textarea validate"></textarea>
                   <label htmlFor="review">Review</label>
                 </div>
               </div>
