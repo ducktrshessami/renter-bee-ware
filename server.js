@@ -6,6 +6,7 @@ catch {
 }
 
 const express = require("express");
+const session = require("express-session");
 const path = require("path");
 const db = require("./models");
 const passport = require("./config/passport");
