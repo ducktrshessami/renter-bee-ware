@@ -40,12 +40,29 @@ class NewReview extends Component {
   componentDidMount() {
     var elems = document.querySelectorAll('.datepicker');
     var instances = M.Datepicker.init(elems);
+    this.handleQuery();
   };
   // componentDidMount() {
   //   var element = ReactDOM.findDOMNode(this.refs.dropdown)
   // };
-  
+
   // var states = [ "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" ];
+
+  handleQuery() {
+    let query = new URLSearchParams(window.location.search);
+    if (query.get("street")) {
+      document.getElementById("street-address").value = query.get("street");
+    }
+    if (query.get("city")) {
+      document.getElementById("city").value = query.get("city");
+    }
+    if (query.get("state")) {
+      document.getElementById("state").value = query.get("state");
+    }
+    if (query.get("zip")) {
+      document.getElementById("zip-code").value = query.get("zip");
+    }
+  }
 
   render() {
     return (
