@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 const API = {
     newReview: function (reviewData) {
         return fetch("/api/review", {
@@ -28,6 +26,9 @@ const API = {
         }
         return fetch(url)
             .then(res => res.json());
+    },
+    photoUrl: function (photo_reference) {
+        return "/api/photo/" + photo_reference;
     }
 };
 
