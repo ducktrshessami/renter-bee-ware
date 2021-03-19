@@ -12,6 +12,14 @@ function getData() {
   };
 }
 
+function parseResult(resultData) {
+  let image;
+  if (resultData.photos) {
+    image = "/api/photo/" + resultData.photos[0].photo_reference;
+  }
+  return <ResultsCard key={resultData.place_id} placeId={resultData.place_id} name={resultData.name} photo={image} address={resultData.formatted_address} />
+}
+
 function SearchApt() {
   const [searchResults, setSearchResults] = useState([]);
   function search(event) {
@@ -63,7 +71,7 @@ function SearchApt() {
         </form>
       </div>
       <div className="row">
-        <div className="col s12">{searchResults.map(item => <ResultsCard name={item.name} address={item.formatted_address} placeId={item.place_id} />)}</div>
+        <div className="col s12">{searchResults.map(parseResult)}</div>
       </div>
     </div>
   );
