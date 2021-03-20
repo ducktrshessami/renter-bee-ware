@@ -38,5 +38,10 @@ module.exports = function (app) {
                 console.error(err);
                 res.status(400).end();
             });
-    })
+    });
+
+    app.get("/api/photo/:photo_reference", function (req, res) {
+        Places.photo(req.params.photo_reference)
+            .then(photo => photo.pipe(res.status(200)));
+    });
 };
