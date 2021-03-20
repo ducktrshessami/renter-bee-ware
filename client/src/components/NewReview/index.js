@@ -17,7 +17,7 @@ function submit(event) {
     zipCode: event.target["zip-code"].value.trim(),
     startDate: event.target["start-date"].value.trim(),
     endDate: event.target["end-date"].value.trim(),
-    stars: event.target["stars"].value.trim(),
+    stars: this.state.stars,
     message: event.target["review"].value.trim()
   };
   if (validate(reviewData)) {
@@ -32,6 +32,7 @@ function submit(event) {
 }
 
 class NewReview extends Component {
+  state = { stars: 0 }
 
   componentDidMount() {
     var elems = document.querySelectorAll('.datepicker');
@@ -58,6 +59,10 @@ class NewReview extends Component {
     if (query.get("zip")) {
       document.getElementById("zip-code").value = query.get("zip");
     }
+  }
+
+  stars(rating) {
+    this.setState({ stars: rating });
   }
 
   render() {
@@ -100,7 +105,7 @@ class NewReview extends Component {
                   <label htmlFor="dates-occupied">End Date</label>
                 </div>
                 <div className="input-field col s6">
-                  <StarRating></StarRating>
+                  <StarRating onChange={rating => this.stars(rating)} />
                   <label htmlFor="stars">Stars (1-5)</label>
                 </div>
               </div>
