@@ -19,7 +19,6 @@ function SearchApt() {
       state: event.target["state"].value.trim(),
       zipCode: event.target["zip-code"].value.trim(),
     };
-    console.log(searchData);
     API.findPlaceFromText(
       `${searchData.streetAddress}, ${searchData.aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`
     )
@@ -60,7 +59,7 @@ function SearchApt() {
                 <label htmlFor="city">City</label>
               </div>
               <div className="input-field col s3">
-                <StateSelector />
+                <StateSelector id="state" />
               </div>
               <div className="input-field col s3">
                 <input id="zip-code" type="text" className="validate" />
