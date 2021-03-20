@@ -3,27 +3,23 @@ import M from "materialize-css";
 import API from "../../utils/API";
 import StarRating from "../StarRating";
 
-function getData() {
-  return {
-    streetAddress: document.getElementById("street-address").value.trim(),
-    aptNumber: document.getElementById("apt-number").value.trim(),
-    city: document.getElementById("city").value.trim(),
-    state: document.getElementById("state").value.trim(),
-    zipCode: document.getElementById("zip-code").value.trim(),
-    startDate: document.getElementById("start-date").value.trim(),
-    endDate: document.getElementById("end-date").value.trim(),
-    stars: document.getElementById("stars").value.trim(),
-    message: document.getElementById("review").value.trim()
-  };
-}
-
 function validate({ streetAddress, aptNumber, city, state, zipCode, startDate, endDate, stars }) {
   return Boolean(streetAddress.match(/^[0-9]+ .+/i) && (aptNumber ? !Number.isNan(Number(aptNumber)) : true) && city && state && !Number.isNan(Number(zipCode)) && startDate && endDate && !Number.isNaN(Number(stars)));
 }
 
 function submit(event) {
-  let reviewData = getData();
   event.preventDefault();
+  let reviewData = {
+    streetAddress: event.target["street-address"].value.trim(),
+    aptNumber: event.target["apt-number"].value.trim(),
+    city: event.target["city"].value.trim(),
+    state: event.target["state"].value.trim(),
+    zipCode: event.target["zip-code"].value.trim(),
+    startDate: event.target["start-date"].value.trim(),
+    endDate: event.target["end-date"].value.trim(),
+    stars: event.target["stars"].value.trim(),
+    message: event.target["review"].value.trim()
+  };
   if (validate(reviewData)) {
     API.findPlaceFromText(`${reviewData.streetAddress}, ${reviewData.city}, ${reviewData.state} ${reviewData.zipCode}`)
       .then(res => res.candidates[0])
@@ -105,7 +101,6 @@ class NewReview extends Component {
                 </div>
                 <div className="input-field col s6">
                   <StarRating></StarRating>
-                  {/* <input id="stars" type="text" className="StarRating validate" /> */}
                   <label htmlFor="stars">Stars (1-5)</label>
                 </div>
               </div>

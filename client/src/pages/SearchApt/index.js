@@ -3,23 +3,20 @@ import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import ResultsCard from "../../components/ResultsCard";
 
-function getData() {
-  return {
-    streetAddress: document.getElementById("street-address").value.trim(),
-    aptNumber: document.getElementById("apt-number").value.trim(),
-    city: document.getElementById("city").value.trim(),
-    state: document.getElementById("state").value.trim(),
-    zipCode: document.getElementById("zip-code").value.trim(),
-  };
-}
-
 function SearchApt() {
   const history = useHistory();
   const [searchResults, setSearchResults] = useState([]);
 
   function search(event) {
-    const searchData = getData();
     event.preventDefault();
+    const searchData = {
+      streetAddress: event.target["street-address"].value.trim(),
+      aptNumber: event.target["apt-number"].value.trim(),
+      city: event.target["city"].value.trim(),
+      state: event.target["state"].value.trim(),
+      zipCode: event.target["zip-code"].value.trim(),
+    };
+    console.log(searchData);
     API.findPlaceFromText(
       `${searchData.streetAddress}, ${searchData.aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`
     )
