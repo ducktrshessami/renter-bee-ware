@@ -1,8 +1,18 @@
 const bcrypt = require("bcryptjs");
 
+const {
+  Model
+} = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define("User", {
+  class User extends Model {
     // The email cannot be null and email is validated
+    static associate(models) {
+      models.User.hasMany(models.Review);
+    }
+  };
+  
+  User.init({
     firstName: {
       type: DataTypes.STRING,
       allowNull: false
@@ -23,7 +33,9 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
+    sequelize,
+    modelName: 'User'
   });
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {
