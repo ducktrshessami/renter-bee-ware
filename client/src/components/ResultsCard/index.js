@@ -5,16 +5,16 @@ import StarRating from "../StarRating";
 const placeholderImage = "https://via.placeholder.com/100";
 
 function getAverageRating(Place) {
-
+  return Place.Reviews.reduce((sum, review) => sum + review.stars, 0) / Place.Reviews.length;
 }
 
 export default class ResultsCard extends Component {
   state = {};
 
   componentDidMount() {
-    API.getReviewsFromPlaceId(this.props.place_id)
+    API.getReviewsFromPlaceId(this.props.placeId)
       .then(res => {
-        if (res) {
+        if (Object.keys(res).length) {
           this.setState({ rating: getAverageRating(res) });
         }
       })
@@ -25,6 +25,10 @@ export default class ResultsCard extends Component {
     let [street, city, state_zip, country] = this.props.address.split(",").map(part => part.trim());
     let [state, zip] = state_zip.split(" ").map(part => part.trim());
     this.props.history.push(`/write-review?street=${street}&city=${city}&state=${state}&zip=${zip}&country=${country}`);
+  }
+
+  viewResults() {
+    this.props.history.push(`/results?place=${this.props.placeId}`);
   }
 
   render() {
@@ -50,6 +54,14 @@ export default class ResultsCard extends Component {
                     onClick={() => this.writeReview()}
                   >
                     Write Review
+                  </button>
+                  <button
+                    className="btn btn-large waves-effect waves-light"
+                    type="submit"
+                    name="action"
+                    onClick={() => this.viewResults()}
+                  >
+                    View Reviews
                   </button>
                 </div>
               </div>
