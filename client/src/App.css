@@ -124,7 +124,10 @@ nav ul a {
 .page-footer {
   background-color: #1277e1 !important;
 }
+.result-card{
+	background-color: #c1edfe !important;
 
+}
 
 @keyframes App-logo-spin {
 	from {

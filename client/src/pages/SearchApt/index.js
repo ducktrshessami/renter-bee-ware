@@ -1,36 +1,42 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import ResultsCard from "../../components/ResultsCard";
+import M from "materialize-css";
+import StateSelector from "../../components/StateSelector";
 
-function getData() {
-  return {
-    streetAddress: document.getElementById("street-address").value.trim(),
-    aptNumber: document.getElementById("apt-number").value.trim(),
-    city: document.getElementById("city").value.trim(),
-    state: document.getElementById("state").value.trim(),
-    zipCode: document.getElementById("zip-code").value.trim(),
-  };
-}
-
-function parseResult(resultData) {
-  let image;
-  if (resultData.photos) {
-    image = API.photoUrl(resultData.photos[0].photo_reference);
-  }
-  return <ResultsCard key={resultData.place_id} placeId={resultData.place_id} name={resultData.name} photo={image} address={resultData.formatted_address} />
-}
 
 function SearchApt() {
+  const history = useHistory();
   const [searchResults, setSearchResults] = useState([]);
+
   function search(event) {
-    const searchData = getData();
     event.preventDefault();
+    const searchData = {
+      streetAddress: event.target["street-address"].value.trim(),
+      aptNumber: event.target["apt-number"].value.trim(),
+      city: event.target["city"].value.trim(),
+      state: event.target["state"].value.trim(),
+      zipCode: event.target["zip-code"].value.trim(),
+    };
     API.findPlaceFromText(
       `${searchData.streetAddress}, ${searchData.aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`
     )
       .then((res) => res.candidates)
       .then(setSearchResults);
   }
+
+  function parseResult(resultData) {
+    let image;
+    if (resultData.photos) {
+      image = API.photoUrl(resultData.photos[0].photo_reference);
+    }
+    return <ResultsCard key={resultData.place_id} placeId={resultData.place_id} name={resultData.name} photo={image} address={resultData.formatted_address} history={history} />
+  }
+
+  var stateSelector = document.querySelectorAll('.select');
+  var stateInstances = M.FormSelect.init(stateSelector);
+
   return (
     <div className="container">
       <div className="container">
@@ -53,8 +59,7 @@ function SearchApt() {
                 <label htmlFor="city">City</label>
               </div>
               <div className="input-field col s3">
-                <input id="state" type="text" className="validate" />
-                <label htmlFor="state">State</label>
+                <StateSelector id="state" />
               </div>
               <div className="input-field col s3">
                 <input id="zip-code" type="text" className="validate" />
@@ -62,7 +67,7 @@ function SearchApt() {
               </div>
             </div>
             <div className="row">
-              <button type="submit" className="waves-effect waves-light btn-large" name="action"> Search <i class="material-icons right"></i></button>
+              <button type="submit" className="waves-effect waves-light btn-large" name="action">Search</button>
             </div>
           </form>
         </div>
