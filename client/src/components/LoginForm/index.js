@@ -8,11 +8,15 @@ function LoginForm() {
   const login = () => {};
 
   return(
+    <>
+    <div className="hero-image">
+    <h3 style={{ color: "white"}}> Have an account? Log in here!</h3>
+    </div> 
     <motion.div
       initial={{ y: -500}}  
       animate={{ y: 0}}
       transition={{ duration: .75}}
-      className='container'>
+      className='container'> 
       <div className="row">
         <form className="col s12">
           <div className="card z-depth-2">
@@ -33,12 +37,13 @@ function LoginForm() {
             <button className="btn waves-effect waves-light col offset-s2 btn-large" type="submit" name="action" onClick={login}>Log In</button>
           </div>
           <div className="row">
-            <a href="/sign-up">Sign Up</a>
+            <a href="/signup">Sign Up</a>
           </div>
           </div>
         </form>
       </div>
     </motion.div>
+    </>
   )
 }
 
