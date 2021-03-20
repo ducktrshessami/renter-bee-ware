@@ -22,10 +22,11 @@ class StarRating extends Component {
       StarRatings rating={
         this.state.rating
       }
-      starRatedColor="#F2AF34"
       changeRating={this.props.static ? undefined : rating => this.changeRating(rating)}
       numberOfStars={5}
-      starHoverColor="#C1EDFE"
+      starEmptyColor="#C1EDFE"
+      starHoverColor="#1277E1"
+      starRatedColor="#F2AF34"
       starDimension="2rem"
       name='rating' /
     >

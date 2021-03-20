@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import ResultsCard from "../../components/ResultsCard";
+import M from "materialize-css";
+import StateSelector from "../../components/StateSelector";
+
 
 function SearchApt() {
   const history = useHistory();
@@ -32,6 +35,9 @@ function SearchApt() {
     return <ResultsCard key={resultData.place_id} placeId={resultData.place_id} name={resultData.name} photo={image} address={resultData.formatted_address} history={history} />
   }
 
+  var stateSelector = document.querySelectorAll('.select');
+  var stateInstances = M.FormSelect.init(stateSelector);
+
   return (
     <div className="container">
       <div className="container">
@@ -54,8 +60,7 @@ function SearchApt() {
                 <label htmlFor="city">City</label>
               </div>
               <div className="input-field col s3">
-                <input id="state" type="text" className="validate" />
-                <label htmlFor="state">State</label>
+                <StateSelector />
               </div>
               <div className="input-field col s3">
                 <input id="zip-code" type="text" className="validate" />

@@ -3,14 +3,15 @@ import { motion } from 'framer-motion';
 
 function Member() {
   return (
-    <div className='container'>
-    <div className='card'>
-      <motion.h3 
+    <div className="center-align">
+    <div className='hero-image center-align valign-center'>
+      <motion.h1 
         initial={{opacity: 0}}
         animate={{opacity: 1}}
-        transition={{duration: 3}}
-        className="left-align">Welcome, Stranger</motion.h3>
+        transition={{duration: 4}}
+        className="center-align" style={{color: "white"}}>Welcome, Stranger</motion.h1>
     </div>
+    <div className="container">
     <div className='row'>
       <div className='row'>
         <div className="col">
@@ -24,7 +25,7 @@ function Member() {
       </div>
     </div>
     <div className="col s12 l9">
-      <div className="card z-depth-2">
+      <div className="card z-depth-2 hoverable">
         <div className="card-content">
           <span className="card-title">123 Fake Street Springfield </span>
           <p>Dates Occupied: 1/1/2000- 1/1/2020</p>
@@ -35,6 +36,7 @@ function Member() {
         </div>
       </div>
     </div>
+  </div>
   </div>
   </div>
   )

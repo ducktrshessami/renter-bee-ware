@@ -9,7 +9,7 @@ class ReviewResults extends Component {
             <div className="card-content">
               <span className="card-title">Address</span>
               <p>Dates Occupied:</p>
-              <p>Stars: </p>
+              <p>Stars:</p>
               <p>Review:</p>
             </div>
           </div>

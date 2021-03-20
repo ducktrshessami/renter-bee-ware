@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import M from "materialize-css";
 import API from "../../utils/API";
 import StarRating from "../StarRating";
+import StateSelector from "../StateSelector";
 
 function validate({ streetAddress, aptNumber, city, state, zipCode, startDate, endDate, stars }) {
   return Boolean(streetAddress.match(/^[0-9]+ .+/i) && (aptNumber ? !Number.isNan(Number(aptNumber)) : true) && city && state && !Number.isNan(Number(zipCode)) && startDate && endDate && !Number.isNaN(Number(stars)));
@@ -35,15 +36,13 @@ class NewReview extends Component {
   state = { stars: 0 }
 
   componentDidMount() {
-    var elems = document.querySelectorAll('.datepicker');
-    var instances = M.Datepicker.init(elems);
+    var datePicker = document.querySelectorAll('.datepicker');
+    var stateSelector = document.querySelectorAll('.select');
+    M.Datepicker.init(datePicker);
+    M.FormSelect.init(stateSelector);
     this.handleQuery();
   };
-  // componentDidMount() {
-  //   var element = ReactDOM.findDOMNode(this.refs.dropdown)
-  // };
 
-  // var states = [ "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" ];
 
   handleQuery() {
     let query = new URLSearchParams(window.location.search);
@@ -87,8 +86,7 @@ class NewReview extends Component {
                   <label htmlFor="city">City</label>
                 </div>
                 <div className="input-field col s3">
-                  <input id="state" type="text" className="validate" />
-                  <label htmlFor="state">State</label>
+                  <StateSelector />
                 </div>
                 <div className="input-field col s3">
                   <input id="zip-code" type="text" className="validate" />
@@ -104,9 +102,9 @@ class NewReview extends Component {
                   <input id="end-date" type="text" className="datepicker validate" />
                   <label htmlFor="dates-occupied">End Date</label>
                 </div>
-                <div className="input-field col s6">
+                <div className="input-field col s6 row">
                   <StarRating onChange={rating => this.stars(rating)} />
-                  <label htmlFor="stars">Stars (1-5)</label>
+                  <label htmlFor="stars">Stars</label>
                 </div>
               </div>
               <div className="row">
