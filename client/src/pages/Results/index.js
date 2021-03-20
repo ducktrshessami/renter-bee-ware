@@ -1,10 +1,13 @@
-import React from'react';
+import React from 'react';
+import PlaceInfo from "../../components/PlaceInfo";
 import ReviewResults from '../../components/ReviewResults';
 
 function Results() {
-  return(
+  return (
     <div>
-      <ReviewResults/>
+      <PlaceInfo />
+      <br />
+      <ReviewResults />
     </div>
   )
 }
