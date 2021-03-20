@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PlaceInfo from "../../components/PlaceInfo";
 import ReviewResults from '../../components/ReviewResults';
 
-function Results() {
-  let query = new URLSearchParams(window.location.search);
-  let place_id = query.get("place");
+class Results extends Component {
+  state = {
+    placeId: ""
+  }
 
-  return (
-    <div>
-      <PlaceInfo placeId={place_id} />
-      <br />
-      <ReviewResults placeId={place_id} />
-    </div>
-  )
+  componentDidMount() {
+    let query = new URLSearchParams(window.location.search);
+    this.setState({ placeId: query.get("place") || "" });
+  }
+
+  render() {
+    return (
+      <div>
+        <PlaceInfo placeId={this.state.place_id} />
+        <br />
+        <ReviewResults placeId={this.state.place_id} />
+      </div>
+    );
+  }
 }
 
 export default Results;
