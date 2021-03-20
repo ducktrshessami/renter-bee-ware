@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReviewCard from "./ReviewCard";
+import ReviewCard from "../ReviewCard";
 
 class ReviewResults extends Component {
   render() {
