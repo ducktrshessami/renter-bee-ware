@@ -1,7 +1,7 @@
 import React from "react";
 import StarRating from "../StarRating";
 
-export default function ReviewCard({ message, stars, startDate, endDate, title }) {
+export default function ReviewCard({ title, startDate, endDate, stars, message }) {
     return (
         <div className="col s12 m6">
             <div className="card">
