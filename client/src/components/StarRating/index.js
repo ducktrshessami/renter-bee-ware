@@ -7,10 +7,13 @@ import StarRatings from 'react-star-ratings';
 class StarRating extends Component {
   state = { rating: this.props.rating || 0 };
 
-  changeRating(newRating, name) {
+  changeRating(newRating) {
     this.setState({
       rating: newRating
     });
+    if (this.props.onChange) {
+      this.props.onChange(newRating);
+    }
   }
 
   render() {
