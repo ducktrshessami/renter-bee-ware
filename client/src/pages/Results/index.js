@@ -53,7 +53,7 @@ class Results extends Component {
       <div>
         <PlaceInfo {...this.state} />
         <br />
-        <ReviewResults reviews={this.state.reviews} />
+        <ReviewResults titleProp="user" reviews={this.state.reviews} />
       </div>
     );
   }
