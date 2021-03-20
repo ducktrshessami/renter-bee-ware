@@ -3,11 +3,14 @@ import PlaceInfo from "../../components/PlaceInfo";
 import ReviewResults from '../../components/ReviewResults';
 
 function Results() {
+  let query = new URLSearchParams(window.location.search);
+  let place_id = query.get("place");
+
   return (
     <div>
-      <PlaceInfo />
+      <PlaceInfo placeId={place_id} />
       <br />
-      <ReviewResults />
+      <ReviewResults placeId={place_id} />
     </div>
   )
 }
