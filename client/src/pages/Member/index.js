@@ -1,7 +1,9 @@
-import React from "react";
+import React, { Component} from "react";
 import { motion } from 'framer-motion';
+import ReviewResults from "../../components/ReviewResults";
 
-function Member() {
+class Member extends Component() {
+  render() {
   return (
     <div className="center-align">
     <div className='hero-image center-align valign-center'>
@@ -36,11 +38,12 @@ function Member() {
         </div>
       </div>
     </div>
+    <ReviewResults titleProp="address" reviews={this.state.reviews} />
   </div>
   </div>
   </div>
   )
-
+  }
 }
 
 export default Member;
