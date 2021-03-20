@@ -6,7 +6,7 @@ module.exports = function (app) {
             where: { place_id: req.params.place_id },
             include: db.Review
         })
-            .then(data => res.status(200).json(data))
+            .then(data => res.status(200).json(data || {}))
             .catch(err => {
                 console.error(err);
                 res.status(500).end();

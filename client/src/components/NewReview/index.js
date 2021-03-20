@@ -4,27 +4,23 @@ import API from "../../utils/API";
 import StarRating from "../StarRating";
 import StateSelector from "../StateSelector";
 
-function getData() {
-  return {
-    streetAddress: document.getElementById("street-address").value.trim(),
-    aptNumber: document.getElementById("apt-number").value.trim(),
-    city: document.getElementById("city").value.trim(),
-    state: document.getElementById("state").value.trim(),
-    zipCode: document.getElementById("zip-code").value.trim(),
-    startDate: document.getElementById("start-date").value.trim(),
-    endDate: document.getElementById("end-date").value.trim(),
-    stars: document.getElementById("stars").value.trim(),
-    message: document.getElementById("review").value.trim()
-  };
-}
-
 function validate({ streetAddress, aptNumber, city, state, zipCode, startDate, endDate, stars }) {
   return Boolean(streetAddress.match(/^[0-9]+ .+/i) && (aptNumber ? !Number.isNan(Number(aptNumber)) : true) && city && state && !Number.isNan(Number(zipCode)) && startDate && endDate && !Number.isNaN(Number(stars)));
 }
 
 function submit(event) {
-  let reviewData = getData();
   event.preventDefault();
+  let reviewData = {
+    streetAddress: event.target["street-address"].value.trim(),
+    aptNumber: event.target["apt-number"].value.trim(),
+    city: event.target["city"].value.trim(),
+    state: event.target["state"].value.trim(),
+    zipCode: event.target["zip-code"].value.trim(),
+    startDate: event.target["start-date"].value.trim(),
+    endDate: event.target["end-date"].value.trim(),
+    stars: this.state.stars,
+    message: event.target["review"].value.trim()
+  };
   if (validate(reviewData)) {
     API.findPlaceFromText(`${reviewData.streetAddress}, ${reviewData.city}, ${reviewData.state} ${reviewData.zipCode}`)
       .then(res => res.candidates[0])
@@ -37,14 +33,36 @@ function submit(event) {
 }
 
 class NewReview extends Component {
+  state = { stars: 0 }
 
   componentDidMount() {
     var datePicker = document.querySelectorAll('.datepicker');
-    var dateInstances = M.Datepicker.init(datePicker);
     var stateSelector = document.querySelectorAll('.select');
-    var stateInstances = M.FormSelect.init(stateSelector);
+    M.Datepicker.init(datePicker);
+    M.FormSelect.init(stateSelector);
+    this.handleQuery();
   };
-  
+
+
+  handleQuery() {
+    let query = new URLSearchParams(window.location.search);
+    if (query.get("street")) {
+      document.getElementById("street-address").value = query.get("street");
+    }
+    if (query.get("city")) {
+      document.getElementById("city").value = query.get("city");
+    }
+    if (query.get("state")) {
+      document.getElementById("state").value = query.get("state");
+    }
+    if (query.get("zip")) {
+      document.getElementById("zip-code").value = query.get("zip");
+    }
+  }
+
+  stars(rating) {
+    this.setState({ stars: rating });
+  }
 
   render() {
     return (
@@ -85,7 +103,7 @@ class NewReview extends Component {
                   <label htmlFor="dates-occupied">End Date</label>
                 </div>
                 <div className="input-field col s6 row">
-                  <StarRating />
+                  <StarRating onChange={rating => this.stars(rating)} />
                   <label htmlFor="stars">Stars</label>
                 </div>
               </div>
