@@ -11,20 +11,19 @@ export default class ResultsCard extends Component {
     return (
       <div className="container">
         <div className="row valign-wrapper">
-          <div className="col s7 offset-s3 valign">
+          <div className="col s8 offset-s2 valign">
             <h3 className="header">Search Results</h3>
-            <div className="card horizontal light-blue lighten-4">
+            <div className="card horizontal result-card">
               <div className="card-image">
                 <img src={this.props.photo || placeholderImage} alt={this.props.name} />
               </div>
               <div className="card-stacked">
                 <div className="card-content">
-                  <p>{this.props.name}</p>
                   <p>{this.props.address}</p>
                 </div>
                 <div className="card-action">
                   <button
-                    className="btn waves-effect waves-light"
+                    className="btn btn-large waves-effect waves-light"
                     type="submit"
                     name="action"
                   >
