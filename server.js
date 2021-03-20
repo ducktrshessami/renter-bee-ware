@@ -31,6 +31,7 @@ app.use(passport.session());
 
 
 // Link API routes
+require('./routes/user')(app);
 require("./routes/api")(app);
 require("./routes/places")(app);
 
