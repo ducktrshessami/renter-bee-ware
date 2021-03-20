@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
 import ResultsCard from "../../components/ResultsCard";
+import M from "materialize-css";
+import StateSelector from "../../components/StateSelector";
+
 
 function getData() {
   return {
@@ -31,6 +34,10 @@ function SearchApt() {
       .then((res) => res.candidates)
       .then(setSearchResults);
   }
+
+  var stateSelector = document.querySelectorAll('.select');
+  var stateInstances = M.FormSelect.init(stateSelector);
+
   return (
     <div className="container">
       <div className="container">
@@ -53,8 +60,7 @@ function SearchApt() {
                 <label htmlFor="city">City</label>
               </div>
               <div className="input-field col s3">
-                <input id="state" type="text" className="validate" />
-                <label htmlFor="state">State</label>
+              <StateSelector />
               </div>
               <div className="input-field col s3">
                 <input id="zip-code" type="text" className="validate" />
