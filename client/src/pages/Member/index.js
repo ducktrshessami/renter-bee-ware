@@ -5,11 +5,11 @@ function Member() {
   return (
     <div className="center-align">
     <div className='hero-image center-align valign-center'>
-      <motion.h3 
+      <motion.h1 
         initial={{opacity: 0}}
         animate={{opacity: 1}}
-        transition={{duration: 3}}
-        className="center-align" style={{color: "white"}}>Welcome, Stranger</motion.h3>
+        transition={{duration: 4}}
+        className="center-align" style={{color: "white"}}>Welcome, Stranger</motion.h1>
     </div>
     <div className="container">
     <div className='row'>

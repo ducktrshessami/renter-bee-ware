@@ -30,6 +30,7 @@
     "express-session": "^1.17.1",
     "if-env": "^1.0.4",
     "node-fetch": "^2.6.1",
+    "passport-local": "^1.0.0",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "react-star-ratings": "^2.3.0",
