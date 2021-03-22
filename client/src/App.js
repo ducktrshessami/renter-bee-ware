@@ -11,9 +11,27 @@ import EditReview from './pages/EditReview';
 import Results from './pages/Results';
 import Footer from './components/Footer';
 import Navbar from "./components/Navbar";
+import API from "./utils/API";
 import "materialize-css/dist/css/materialize.min.css";
 
 class App extends Component {
+  state = {
+    authenticated: false,
+    userData: {}
+  }
+
+  componentDidMount() {
+    API.getUserData()
+      .then(data => {
+        if (Object.keys(data).length) {
+          this.setState({
+            authenticated: true,
+            userData: data
+          });
+        }
+      })
+  }
+
   render() {
     return (
       <div className="App">
@@ -21,12 +39,12 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path='/' component={Index} />
-            <Route exact path='/login' component={Login}/>
-            <Route exact path='/signup' component={SignUp}/>
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/signup' component={SignUp} />
             <Route exact path='/search-apt' component={SearchApt} />
-            <Route exact path='/member' component={Member}/>
+            <Route exact path='/member' component={Member} />
             <Route exact path='/write-review' component={WriteReview} />
-            <Route exact path='/edit-review' component={EditReview}/>
+            <Route exact path='/edit-review' component={EditReview} />
             <Route exact path='/results' component={Results} />
           </Switch>
           <Footer />
