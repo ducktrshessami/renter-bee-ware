@@ -27,8 +27,8 @@ function LoginForm() {
           <h3 className="col s12 center-align">Log In</h3>
           <div className="row">
             <div className="input-field col s8 offset-s2">
-              <input id="password" type="password" className="validate" onChange={e => setEmail(e.target.value)} />
-              <label htmlFor="password">Email</label>
+              <input id="email" type="email" className="validate" onChange={e => setEmail(e.target.value)} />
+              <label htmlFor="email">Email</label>
             </div>
           </div>
           <div className="row">
