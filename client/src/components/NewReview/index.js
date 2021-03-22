@@ -24,27 +24,27 @@ class NewReview extends Component {
     if (query.get("street")) {
       let input = document.getElementById("street-address");
       input.value = query.get("street");
-      input.click();
+      input.focus();
     }
     if (query.get("apt")) {
       let input = document.getElementById("apt-number");
       input.value = query.get("apt");
-      input.click();
+      input.focus();
     }
     if (query.get("city")) {
       let input = document.getElementById("city");
       input.value = query.get("city");
-      input.click();
+      input.focus();
     }
     if (query.get("state")) {
       let input = document.getElementById("state");
       input.value = query.get("state");
-      input.click();
+      input.focus();
     }
     if (query.get("zip")) {
       let input = document.getElementById("zip-code");
       input.value = query.get("zip");
-      input.click();
+      input.focus();
     }
   }
 
