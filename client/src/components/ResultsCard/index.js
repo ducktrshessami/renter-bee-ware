@@ -24,7 +24,11 @@ export default class ResultsCard extends Component {
   writeReview() {
     let [street, city, state_zip, country] = this.props.address.split(",").map(part => part.trim());
     let [state, zip] = state_zip.split(" ").map(part => part.trim());
-    this.props.history.push(`/write-review?street=${street}&city=${city}&state=${state}&zip=${zip}&country=${country}`);
+    let url = `/write-review?street=${street}&city=${city}&state=${state}&zip=${zip}&country=${country}`;
+    if (this.props.aptNumber) {
+      url += `&apt=${this.props.aptNumber}`;
+    }
+    this.props.history.push(url);
   }
 
   viewResults() {

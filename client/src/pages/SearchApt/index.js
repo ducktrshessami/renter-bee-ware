@@ -9,6 +9,7 @@ import StateSelector from "../../components/StateSelector";
 function SearchApt() {
   const history = useHistory();
   const [searchResults, setSearchResults] = useState([]);
+  const [aptNumber, setAptNumber] = useState(null);
 
   function search(event) {
     event.preventDefault();
@@ -20,7 +21,7 @@ function SearchApt() {
       zipCode: event.target["zip-code"].value.trim(),
     };
     API.findPlaceFromText(
-      `${searchData.streetAddress}, ${searchData.aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`
+      `${searchData.streetAddress}, #${aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`
     )
       .then((res) => res.candidates)
       .then(setSearchResults);
@@ -31,7 +32,7 @@ function SearchApt() {
     if (resultData.photos) {
       image = API.photoUrl(resultData.photos[0].photo_reference);
     }
-    return <ResultsCard key={resultData.place_id} placeId={resultData.place_id} name={resultData.name} photo={image} address={resultData.formatted_address} history={history} />
+    return <ResultsCard key={resultData.place_id} placeId={resultData.place_id} name={resultData.name} photo={image} address={resultData.formatted_address} aptNumber={aptNumber} history={history} />
   }
 
   var stateSelector = document.querySelectorAll('.select');
@@ -49,7 +50,7 @@ function SearchApt() {
                 <label htmlFor="street-address">Street Address</label>
               </div>
               <div className="input-field col s6">
-                <input id="apt-number" type="text" className="validate" />
+                <input id="apt-number" type="number" className="validate" onChange={event => setAptNumber(event.target.value)} />
                 <label htmlFor="apt-number">Apt/Unit Number</label>
               </div>
             </div>
