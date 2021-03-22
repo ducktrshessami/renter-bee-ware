@@ -27,14 +27,14 @@ function SignupForm() {
             </div>
             <div className='row'>
               <div className="input-field col s8 offset-s2">
-                <input id="last_name" type="text" className="validate" onChang={e => setRegisterLastName(e.target.value)} />
+                <input id="last_name" type="text" className="validate" onChange={e => setRegisterLastName(e.target.value)} />
                 <label htmlFor="last_name">Last Name</label>
               </div>
             </div>
             <div className="row">
               <div className="input-field col s8 offset-s2">
-                <input id="password" type="password" className="validate" onChange={e => setRegisterEmail(e.target.value)} />
-                <label htmlFor="password">Email</label>
+                <input id="email" type="email" className="validate" onChange={e => setRegisterEmail(e.target.value)} />
+                <label htmlFor="email">Email</label>
               </div>
             </div>
             <div className="row">

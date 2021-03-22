@@ -2,7 +2,7 @@ import React, { Component} from "react";
 import { motion } from 'framer-motion';
 import ReviewResults from "../../components/ReviewResults";
 
-class Member extends Component() {
+class Member extends Component {
   render() {
   return (
     <div className="center-align">
@@ -38,7 +38,7 @@ class Member extends Component() {
         </div>
       </div>
     </div>
-    <ReviewResults titleProp="address" reviews={this.state.reviews} />
+    {/* <ReviewResults titleProp="address" reviews={this.state.reviews} /> */}
   </div>
   </div>
   </div>
