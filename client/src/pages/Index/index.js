@@ -22,7 +22,7 @@ function Index() {
       <div className="row">
         <div className="col s12 m2 l2"></div>
         <div className="col s12 m10 l8">
-          <p>Our reviews could you avoid a disaster or find your next place to live. Reading our reviews is always free and easy; simply search for a unit by address. If you would like to create a review you will need to log in to your account or sign up. Happy hunting!</p>
+          <p>Our reviews could you avoid a disaster or find a great place to live. Reading our reviews is always free and easy, simply search for a unit by address. If you would like to write a review you will need to log in to your account or sign up. Happy hunting!</p>
         </div>
         <div className="col s12 m2 l2"></div>
       </div>
