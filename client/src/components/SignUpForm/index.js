@@ -10,6 +10,12 @@ function SignupForm() {
   const register = () => {};
   
   return(
+    <main>
+      <div className="hero-image">
+        <div className="hero-text">
+          <h3> Create an account to write reviews!</h3>
+        </div> 
+      </div>
     <motion.div
       initial={{ y: -800}}
       animate={{ y: 0}}
@@ -44,15 +50,17 @@ function SignupForm() {
               </div>
             </div>
             <div className="row">
-              <button className="btn waves-effect waves-light col offset-s2 btn-large" type="submit" name="action" onClick={register} >Sign up</button>
+              <button className="btn waves-effect waves-light btn-large" type="submit" name="action" onClick={register} >Sign up</button>
             </div>
             <div className="row">
-              <a href="/login">Log In</a>
+              <a href="/login">Already have an account? Click here to log in!</a>
             </div>
+            <br />
             </div>
           </form>
         </div>
       </motion.div>
+      </main>
   )
 }
 

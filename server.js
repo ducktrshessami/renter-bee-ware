@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Session
 app.use(
-  session({ secret: "renter bee", resave: true, saveUninitialized: true })
+  session({ secret: process.env.SESSION_SECRET || "renter bee", resave: true, saveUninitialized: true })
 );
 app.use(passport.initialize());
 app.use(passport.session());

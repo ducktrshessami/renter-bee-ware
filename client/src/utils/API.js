@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 const API = {
     getReviewsFromPlaceId: function (place_id) {
         return fetch("/api/review/" + place_id)
@@ -6,6 +8,14 @@ const API = {
     newReview: function (reviewData) {
         return fetch("/api/review", {
             method: "post",
+            body: JSON.stringify(reviewData),
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(res => res.json());
+    },
+    editReview: function (id, reviewData) {
+        return fetch("/api/review/" + id, {
+            method: "put",
             body: JSON.stringify(reviewData),
             headers: { 'Content-Type': 'application/json' }
         })
@@ -33,6 +43,32 @@ const API = {
     },
     photoUrl: function (photo_reference) {
         return "/api/photo/" + photo_reference;
+    },
+    getUserData: function () {
+        return fetch("/api/user_data")
+            .then(res => res.json());
+    },
+    login: function (email, password) {
+        return fetch("/api/login", {
+            method: "post",
+            body: JSON.stringify({
+                email: email,
+                password: password
+            }),
+            headers: { "Content-Type": "application/json" }
+        })
+            .then(res => res.json());
+    },
+    signUp: function (email, password) {
+        return fetch("/api/signup", {
+            method: "post",
+            body: JSON.stringify({
+                email: email,
+                password: password
+            }),
+            headers: { "Content-Type": "application/json" }
+        })
+            .then(res => res.json());
     }
 };
 

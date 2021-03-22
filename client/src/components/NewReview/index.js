@@ -21,18 +21,32 @@ class NewReview extends Component {
 
   handleQuery() {
     let query = new URLSearchParams(window.location.search);
+    let street = document.getElementById("street-address");
     if (query.get("street")) {
-      document.getElementById("street-address").value = query.get("street");
+      street.value = query.get("street");
+      street.focus();
+    }
+    if (query.get("apt")) {
+      let input = document.getElementById("apt-number");
+      input.value = query.get("apt");
+      input.focus();
     }
     if (query.get("city")) {
-      document.getElementById("city").value = query.get("city");
+      let input = document.getElementById("city");
+      input.value = query.get("city");
+      input.focus();
     }
     if (query.get("state")) {
-      document.getElementById("state").value = query.get("state");
+      let input = document.getElementById("state");
+      input.value = query.get("state");
+      input.focus();
     }
     if (query.get("zip")) {
-      document.getElementById("zip-code").value = query.get("zip");
+      let input = document.getElementById("zip-code");
+      input.value = query.get("zip");
+      input.focus();
     }
+    street.focus();
   }
 
   stars(rating) {
