@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import API from "../../utils/API";
 
 function SignupForm() {
 
@@ -7,7 +8,18 @@ function SignupForm() {
   const [registerLastName, setRegisterLastName] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
-  const register = () => {};
+  const register = (e) => {
+    e.preventDefault();
+    if ( registerFirstName && registerLastName && registerEmail && registerPassword ) {
+      API.signUp({
+        firstName: registerFirstName,
+        lastName: registerLastName,
+        email: registerEmail,
+        password: registerPassword
+      })
+    }
+  };
+  
   
   return(
     <main>
