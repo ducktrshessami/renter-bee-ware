@@ -2,6 +2,10 @@
 	text-align: center;
 }
 
+[role="button"] {
+	cursor: pointer;
+}
+
 .hero-image {
   background-image: url("https://www.zillowstatic.com/s3/homepage/static/_Desktop_Overlay_ReadyChange_HC@2x.jpg");
   height: 450px;
