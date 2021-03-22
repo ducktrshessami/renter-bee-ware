@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 const API = {
     getReviewsFromPlaceId: function (place_id) {
         return fetch("/api/review/" + place_id)
@@ -33,6 +35,10 @@ const API = {
     },
     photoUrl: function (photo_reference) {
         return "/api/photo/" + photo_reference;
+    },
+    getUserData: function () {
+        return fetch("/api/user_data")
+            .then(res => res.json());
     }
 };
 
