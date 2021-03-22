@@ -52,15 +52,16 @@ export default class ResultsCard extends Component {
                 </div>
                 <div className="card-action">
                   <button
-                    className="btn btn-large waves-effect waves-light"
+                    className="col-6 btn btn-large waves-effect waves-light"
                     type="submit"
                     name="action"
                     onClick={() => this.writeReview()}
                   >
                     Write Review
                   </button>
+                  <hr/>
                   <button
-                    className="btn btn-large waves-effect waves-light"
+                    className="col-6 btn btn-large waves-effect waves-light"
                     type="submit"
                     name="action"
                     onClick={() => this.viewResults()}
