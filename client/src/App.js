@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import "./App.css";
 import Index from './pages/Index';
 import Login from './pages/Login';
@@ -46,12 +46,12 @@ class App extends Component {
           <Navbar authenticated={this.state.authenticated} />
           <Switch>
             <Route exact path='/' ><Index {...this.state} /></Route>
-            <Route exact path='/login' ><Login {...this.state} /></Route>
-            <Route exact path='/signup' ><SignUp {...this.state} /></Route>
+            {this.state.authenticated ? <Redirect to="/" /> : <Route exact path='/login' ><Login {...this.state} /></Route>}
+            {this.state.authenticated ? <Redirect to="/" /> : <Route exact path='/signup' ><SignUp {...this.state} /></Route>}
             <Route exact path='/search-apt' ><SearchApt {...this.state} /></Route>
-            <Route exact path='/member' ><Member {...this.state} /></Route>
-            <Route exact path='/write-review' ><WriteReview {...this.state} /></Route>
-            <Route exact path='/edit-review' ><EditReview {...this.state} /></Route>
+            {!this.state.authenticated ? <Redirect to="/login" /> : <Route exact path='/member' ><Member {...this.state} /></Route>}
+            {!this.state.authenticated ? <Redirect to="/login" /> : <Route exact path='/write-review' ><WriteReview {...this.state} /></Route>}
+            {!this.state.authenticated ? <Redirect to="/login" /> : <Route exact path='/edit-review' ><EditReview {...this.state} /></Route>}
             <Route exact path='/results' ><Results {...this.state} /></Route>
           </Switch>
           <Footer />
