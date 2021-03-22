@@ -4,7 +4,10 @@ module.exports = function (app) {
   app.get("/api/review/:place_id", function (req, res) {
     db.Place.findOne({
       where: { place_id: req.params.place_id },
-      include: db.Review,
+      include: {
+        model: db.Review,
+        include: db.User
+      }
     })
       .then((data) => res.status(200).json(data))
       .catch((err) => {
