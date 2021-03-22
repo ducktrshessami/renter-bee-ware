@@ -6,8 +6,6 @@ module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     
     res.json({
-      firstName: req.user.firstName,
-      lastName: req.user.lastName,
       email: req.user.email,
       id: req.user.id
     });
@@ -17,6 +15,8 @@ module.exports = function(app) {
   app.post("/api/signup", (req, res) => {
     db.User.create({
 
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password
     })

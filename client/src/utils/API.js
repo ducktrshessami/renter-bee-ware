@@ -63,6 +63,8 @@ const API = {
         return fetch("/api/signup", {
             method: "post",
             body: JSON.stringify({
+                // firstName: firstName,
+                // lastName: lastName,
                 email: email,
                 password: password
             }),

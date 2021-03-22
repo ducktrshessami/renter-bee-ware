@@ -1,12 +1,27 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import "./style.css";
+import API from '../../utils/API';
 
 function LoginForm() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const login = () => {};
+  
+  function login(e) {
+    e.preventDefault();
+    if (email && password) {
+      API.login({
+        email: email,
+        password: password
+      })
+      .then(() => {
+        window.location.replace("/member");
+      })
+      .catch(err => console.log(err));
+      alert("Wrong login credentials!!")
+    }
+  };
 
   return(
     <main>
