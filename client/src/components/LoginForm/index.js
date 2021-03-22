@@ -8,19 +8,18 @@ function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
-  login = (e) => {
+  function login(e) {
     e.preventDefault();
     if (email && password) {
       API.login({
         email: email,
         password: password
       })
-      .then(response => {
-        if (response.data.isAuthenticated) {
-          window.location.replace("/member");
-        }
+      .then(() => {
+        window.location.replace("/member");
       })
-      .catch(alert("Wrong login credentials!"));
+      .catch(err => console.log(err));
+      alert("Wrong login credentials!!")
     }
   };
 
