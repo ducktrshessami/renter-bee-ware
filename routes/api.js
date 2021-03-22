@@ -40,9 +40,20 @@ module.exports = function (app) {
         res.status(500).end();
       });
   });
-  app.put("/api/review/:review_id", function (req, res) {
-    db.Review.findOne({
-      where: { review_id: },
-    });
+  app.put("/api/review/:id", function (req, res) {
+    db.Review.findByPk(req.params.review_id)
+      .then(review => {
+        if (review) {
+          review.update(req.body)
+            .then(() => res.status(200).end())
+        }
+        else {
+          res.status(400).end();
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).end();
+      });
   });
 };
