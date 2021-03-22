@@ -5,8 +5,9 @@
     justify-content: center;
 }
 
-a {
+.active {
     color: white !important;
+
 }
 
 .sidenav .disabled {
