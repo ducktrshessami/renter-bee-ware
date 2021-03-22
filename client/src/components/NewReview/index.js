@@ -21,10 +21,10 @@ class NewReview extends Component {
 
   handleQuery() {
     let query = new URLSearchParams(window.location.search);
+    let street = document.getElementById("street-address");
     if (query.get("street")) {
-      let input = document.getElementById("street-address");
-      input.value = query.get("street");
-      input.focus();
+      street.value = query.get("street");
+      street.focus();
     }
     if (query.get("apt")) {
       let input = document.getElementById("apt-number");
@@ -46,6 +46,7 @@ class NewReview extends Component {
       input.value = query.get("zip");
       input.focus();
     }
+    street.focus();
   }
 
   stars(rating) {
