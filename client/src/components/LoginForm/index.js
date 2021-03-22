@@ -37,12 +37,13 @@ function LoginForm() {
               <label htmlFor="password">Password</label>
             </div>
           </div>
-          <div className="row d-flex justify-content-center">
-            <button className="btn center waves-effect waves-light col offset-s2 btn-large" type="submit" name="action" onClick={login}>Log In</button>
+          <div className="row d-flex align-items-center">
+            <button className="btn center waves-effect waves-light btn-large" type="submit" name="action" onClick={login}>Log In</button>
           </div>
           <div className="row">
-            <a href="/signup">Sign Up</a>
+            <a href="/signup">New around here? Sign up to write reviews!</a>
           </div>
+          <br />
           </div>
         </form>
       </div>
