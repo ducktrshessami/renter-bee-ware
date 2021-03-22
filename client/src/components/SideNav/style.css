@@ -1,14 +1,18 @@
 .sidenav {
-    background-color: #383838!important;
+    background-color: #0C4499!important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.sidenav * {
-    color: #ffffff!important;
+.active {
+    color: white !important;
+
 }
 
 .sidenav .disabled {
     font-weight: bold!important;
-    color: #666666!important;
+    color: #F2AF34!important;
     display: block;
     font-size: 14px;
     height: 48px;

@@ -2,3 +2,7 @@
     height: 100%;
     width: auto;
 }
+
+.material-icons{
+    color: black !important;
+}
