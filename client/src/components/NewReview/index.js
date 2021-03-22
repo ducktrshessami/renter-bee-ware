@@ -22,16 +22,24 @@ class NewReview extends Component {
   handleQuery() {
     let query = new URLSearchParams(window.location.search);
     if (query.get("street")) {
-      document.getElementById("street-address").value = query.get("street");
+      let input = document.getElementById("street-address");
+      input.value = query.get("street");
+      input.click();
     }
     if (query.get("city")) {
-      document.getElementById("city").value = query.get("city");
+      let input = document.getElementById("city");
+      input.value = query.get("city");
+      input.click();
     }
     if (query.get("state")) {
-      document.getElementById("state").value = query.get("state");
+      let input = document.getElementById("state");
+      input.value = query.get("state");
+      input.click();
     }
     if (query.get("zip")) {
-      document.getElementById("zip-code").value = query.get("zip");
+      let input = document.getElementById("zip-code");
+      input.value = query.get("zip");
+      input.click();
     }
   }
 
