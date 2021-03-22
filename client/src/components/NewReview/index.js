@@ -26,6 +26,11 @@ class NewReview extends Component {
       input.value = query.get("street");
       input.click();
     }
+    if (query.get("apt")) {
+      let input = document.getElementById("apt-number");
+      input.value = query.get("apt");
+      input.click();
+    }
     if (query.get("city")) {
       let input = document.getElementById("city");
       input.value = query.get("city");
