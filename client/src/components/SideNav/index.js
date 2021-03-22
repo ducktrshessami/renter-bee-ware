@@ -24,20 +24,20 @@ export default class Sidenav extends Component {
         return (
             <ul id="sidenav" className="sidenav">
                 <Switch>
-                    <Route path="/portfolio">
-                        <li><Link to="/" onClick={() => this.clicked()}>About Me</Link></li>
-                        <li><span className="disabled">Portfolio</span></li>
-                        <li><Link to="/contact" onClick={() => this.clicked()}>Contact</Link></li>
+                    <Route path="/member">
+                        <li><Link to="/" onClick={() => this.clicked()}>Home</Link></li>
+                        <li><span className="disabled">My Account</span></li>
+                        <li><Link to="/write-review" onClick={() => this.clicked()}>New Review</Link></li>
                     </Route>
-                    <Route path="/contact">
-                        <li><Link to="/" onClick={() => this.clicked()}>About Me</Link></li>
-                        <li><Link to="/portfolio" onClick={() => this.clicked()}>Portfolio</Link></li>
-                        <li><span className="disabled">Contact</span></li>
+                    <Route path="/write-review">
+                        <li><Link to="/" onClick={() => this.clicked()}>Home</Link></li>
+                        <li><Link to="/member" onClick={() => this.clicked()}>My Account</Link></li>
+                        <li><span className="disabled">New Review</span></li>
                     </Route>
                     <Route path="/">
-                        <li><span className="disabled">About Me</span></li>
-                        <li><Link to="/portfolio" onClick={() => this.clicked()}>Portfolio</Link></li>
-                        <li><Link to="/contact" onClick={() => this.clicked()}>Contact</Link></li>
+                        <li><span className="disabled">Home</span></li>
+                        <li><Link to="/member" onClick={() => this.clicked()}>My Account</Link></li>
+                        <li><Link to="/write-review" onClick={() => this.clicked()}>New Review</Link></li>
                     </Route>
                 </Switch>
             </ul>
