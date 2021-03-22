@@ -34,7 +34,7 @@ module.exports = function (app) {
         return PlaceId;
       })
       .then((PlaceId) => db.Review.create({ ...req.body, PlaceId: PlaceId }))
-      .then((data) => res.status(200).json(data))
+      .then(data => res.status(200).json(data))
       .catch((err) => {
         console.error(err);
         res.status(500).end();
@@ -45,7 +45,7 @@ module.exports = function (app) {
       .then(review => {
         if (review) {
           review.update(req.body)
-            .then(() => res.status(200).end())
+            .then(data => res.status(200).json(data))
         }
         else {
           res.status(400).end();

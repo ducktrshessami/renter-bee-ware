@@ -13,6 +13,14 @@ const API = {
         })
             .then(res => res.json());
     },
+    editReview: function (id, reviewData) {
+        return fetch("/api/review/" + id, {
+            method: "put",
+            body: JSON.stringify(reviewData),
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(res => res.json());
+    },
     findPlaceFromText: function (query) {
         return fetch(`/api/findplacefromtext?q=${query}`)
             .then(res => res.json());
@@ -43,10 +51,10 @@ const API = {
     login: function (email, password) {
         return fetch("/api/login", {
             method: "post",
-            body: {
+            body: JSON.stringify({
                 email: email,
                 password: password
-            },
+            }),
             headers: { "Content-Type": "application/json" }
         })
             .then(res => res.json());
@@ -54,10 +62,10 @@ const API = {
     signUp: function (email, password) {
         return fetch("/api/signup", {
             method: "post",
-            body: {
+            body: JSON.stringify({
                 email: email,
                 password: password
-            },
+            }),
             headers: { "Content-Type": "application/json" }
         })
             .then(res => res.json());
