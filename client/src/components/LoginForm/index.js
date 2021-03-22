@@ -8,6 +8,9 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const login = () => {};
 
+  console.log(email);
+  console.log(password);
+  
   return(
     <main>
     <div className="hero-image">
