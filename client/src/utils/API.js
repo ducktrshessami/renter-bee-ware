@@ -39,6 +39,28 @@ const API = {
     getUserData: function () {
         return fetch("/api/user_data")
             .then(res => res.json());
+    },
+    login: function (email, password) {
+        return fetch("/api/login", {
+            method: "post",
+            body: {
+                email: email,
+                password: password
+            },
+            headers: { "Content-Type": "application/json" }
+        })
+            .then(res => res.json());
+    },
+    signUp: function (email, password) {
+        return fetch("/api/signup", {
+            method: "post",
+            body: {
+                email: email,
+                password: password
+            },
+            headers: { "Content-Type": "application/json" }
+        })
+            .then(res => res.json());
     }
 };
 
