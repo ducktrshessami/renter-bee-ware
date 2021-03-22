@@ -46,12 +46,22 @@ class App extends Component {
           <Navbar authenticated={this.state.authenticated} />
           <Switch>
             <Route exact path='/' ><Index {...this.state} /></Route>
-            {this.state.authenticated ? <Redirect to="/" /> : <Route exact path='/login' ><Login {...this.state} /></Route>}
-            {this.state.authenticated ? <Redirect to="/" /> : <Route exact path='/signup' ><SignUp {...this.state} /></Route>}
+            <Route exact path='/login' >
+              {this.state.authenticated ? <Redirect to="/" /> : <Login {...this.state} />}
+            </Route>
+            <Route exact path='/signup' >
+              {this.state.authenticated ? <Redirect to="/" /> : <SignUp {...this.state} />}
+            </Route>
             <Route exact path='/search-apt' ><SearchApt {...this.state} /></Route>
-            {!this.state.authenticated ? <Redirect to="/login" /> : <Route exact path='/member' ><Member {...this.state} /></Route>}
-            {!this.state.authenticated ? <Redirect to="/login" /> : <Route exact path='/write-review' ><WriteReview {...this.state} /></Route>}
-            {!this.state.authenticated ? <Redirect to="/login" /> : <Route exact path='/edit-review' ><EditReview {...this.state} /></Route>}
+            <Route exact path='/member' >
+              {!this.state.authenticated ? <Redirect to="/login" /> : <Member {...this.state} />}
+            </Route>
+            <Route exact path='/write-review' >
+              {!this.state.authenticated ? <Redirect to="/login" /> : <WriteReview {...this.state} />}
+            </Route>
+            <Route exact path='/edit-review' >
+              {!this.state.authenticated ? <Redirect to="/login" /> : <EditReview {...this.state} />}
+            </Route>
             <Route exact path='/results' ><Results {...this.state} /></Route>
           </Switch>
           <Footer />
