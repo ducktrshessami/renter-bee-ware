@@ -8,7 +8,8 @@ function SignupForm() {
   const [registerLastName, setRegisterLastName] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
-  const register = (e) => {
+  
+  register = (e) => {
     e.preventDefault();
     if ( registerFirstName && registerLastName && registerEmail && registerPassword ) {
       API.signUp({
@@ -17,6 +18,11 @@ function SignupForm() {
         email: registerEmail,
         password: registerPassword
       })
+      .then(() => {
+        window.location.replace("/member");
+      
+      })
+      .catch(err => console.log(err));
     }
   };
   
