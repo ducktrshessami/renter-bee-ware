@@ -17,35 +17,42 @@ import "materialize-css/dist/css/materialize.min.css";
 class App extends Component {
   state = {
     authenticated: false,
-    userData: {}
+    userData: {},
+    refreshAuth: this.refreshAuthState
   }
 
   componentDidMount() {
+    this.refreshAuthState();
+  }
+
+  refreshAuthState() {
     API.getUserData()
       .then(data => {
         if (Object.keys(data).length) {
           this.setState({
+            ...this.state,
             authenticated: true,
             userData: data
           });
         }
       })
+      .catch(console.error);
   }
 
   render() {
     return (
       <div className="App">
         <Router>
-          <Navbar />
+          <Navbar authenticated={this.state.authenticated} />
           <Switch>
-            <Route exact path='/' component={Index} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/signup' component={SignUp} />
-            <Route exact path='/search-apt' component={SearchApt} />
-            <Route exact path='/member' component={Member} />
-            <Route exact path='/write-review' component={WriteReview} />
-            <Route exact path='/edit-review' component={EditReview} />
-            <Route exact path='/results' component={Results} />
+            <Route exact path='/' ><Index {...this.state} /></Route>
+            <Route exact path='/login' ><Login {...this.state} /></Route>
+            <Route exact path='/signup' ><SignUp {...this.state} /></Route>
+            <Route exact path='/search-apt' ><SearchApt {...this.state} /></Route>
+            <Route exact path='/member' ><Member {...this.state} /></Route>
+            <Route exact path='/write-review' ><WriteReview {...this.state} /></Route>
+            <Route exact path='/edit-review' ><EditReview {...this.state} /></Route>
+            <Route exact path='/results' ><Results {...this.state} /></Route>
           </Switch>
           <Footer />
         </Router>
