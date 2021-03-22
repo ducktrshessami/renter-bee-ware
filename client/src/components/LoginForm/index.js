@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import "./style.css";
 
 function LoginForm() {
 
@@ -8,10 +9,13 @@ function LoginForm() {
   const login = () => {};
 
   return(
-    <>
+    <main>
     <div className="hero-image">
-    <h3 style={{ color: "white"}}> Have an account? Log in here!</h3>
+    <div className="hero-text">
+
+      <h3> Have an account? Log in below!</h3>
     </div> 
+    </div>
     <motion.div
       initial={{ y: -500}}  
       animate={{ y: 0}}
@@ -20,7 +24,7 @@ function LoginForm() {
       <div className="row">
         <form className="col s12">
           <div className="card z-depth-2">
-          <h5 className="col s12 center-align">Log In</h5>
+          <h3 className="col s12 center-align">Log In</h3>
           <div className="row">
             <div className="input-field col s8 offset-s2">
               <input id="password" type="password" className="validate" onChange={e => setEmail(e.target.value)} />
@@ -33,8 +37,8 @@ function LoginForm() {
               <label htmlFor="password">Password</label>
             </div>
           </div>
-          <div className="row">
-            <button className="btn waves-effect waves-light col offset-s2 btn-large" type="submit" name="action" onClick={login}>Log In</button>
+          <div className="row d-flex justify-content-center">
+            <button className="btn center waves-effect waves-light col offset-s2 btn-large" type="submit" name="action" onClick={login}>Log In</button>
           </div>
           <div className="row">
             <a href="/signup">Sign Up</a>
@@ -43,7 +47,7 @@ function LoginForm() {
         </form>
       </div>
     </motion.div>
-    </>
+    </main>
   )
 }
 
