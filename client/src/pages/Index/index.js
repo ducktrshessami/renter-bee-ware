@@ -1,7 +1,6 @@
 import React from 'react';
 import ReadReviewsImg from "../../images/read-review-card-img.png";
 import WriteReviewImg from "../../images/write-review-card-img.png";
-import "./style.css";
 
 function Index() {
   return(
