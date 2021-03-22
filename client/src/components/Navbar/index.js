@@ -30,8 +30,8 @@ function Navbar() {
           <li><a href="/write-review">Write Review</a></li>
           <li><a href="logout">Logout</a></li>
         </ul>
+        <div role="button" data-target="sidenav" className="sidenav-trigger right hide-on-med-and-up"><i className="material-icons">menu</i></div>
       </div>
-      <div role="button" data-target="sidenav" className="sidenav-trigger right hide-on-med-and-up"><i className="material-icons">menu</i></div>
     </nav>
     <Sidenav/>
 
