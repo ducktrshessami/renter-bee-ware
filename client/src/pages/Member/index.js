@@ -12,10 +12,6 @@ class Member extends Component {
     // API call to get reviews from member ID
   }
 
-<<<<<<< HEAD
-class Member extends Component {
-=======
->>>>>>> 46006f1bcc4c196fb45b192d62fad0f3bae061bf
   render() {
     return (
       <div className="center-align">
@@ -51,16 +47,7 @@ class Member extends Component {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-    </div>
-    {/* <ReviewResults titleProp="address" reviews={this.state.reviews} /> */}
-  </div>
-  </div>
-  </div>
-  )
-=======
     )
->>>>>>> 46006f1bcc4c196fb45b192d62fad0f3bae061bf
   }
 }
 
