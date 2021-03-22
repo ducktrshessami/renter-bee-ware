@@ -2,57 +2,87 @@ import React, { Component } from 'react';
 import M from "materialize-css";
 import API from "../../utils/API";
 import StarRating from "../StarRating";
-
-function getData() {
-  return {
-    streetAddress: document.getElementById("street-address").value.trim(),
-    aptNumber: document.getElementById("apt-number").value.trim(),
-    city: document.getElementById("city").value.trim(),
-    state: document.getElementById("state").value.trim(),
-    zipCode: document.getElementById("zip-code").value.trim(),
-    startDate: document.getElementById("start-date").value.trim(),
-    endDate: document.getElementById("end-date").value.trim(),
-    stars: document.getElementById("stars").value.trim(),
-    message: document.getElementById("review").value.trim()
-  };
-}
+import StateSelector from "../StateSelector";
 
 function validate({ streetAddress, aptNumber, city, state, zipCode, startDate, endDate, stars }) {
-  return Boolean(streetAddress.match(/^[0-9]+ .+/i) && (aptNumber ? !Number.isNan(Number(aptNumber)) : true) && city && state && !Number.isNan(Number(zipCode)) && startDate && endDate && !Number.isNaN(Number(stars)));
-}
-
-function submit(event) {
-  let reviewData = getData();
-  event.preventDefault();
-  if (validate(reviewData)) {
-    API.findPlaceFromText(`${reviewData.streetAddress}, ${reviewData.city}, ${reviewData.state} ${reviewData.zipCode}`)
-      .then(res => res.candidates[0])
-      .then(place => API.newReview({ ...reviewData, ...place }))
-      .then(() => {
-        window.location.pathname = "/";
-      })
-      .catch(console.error);
-  }
+  return Boolean(streetAddress.match(/^[0-9]+ .+/i) && (aptNumber ? !Number.isNaN(Number(aptNumber)) : true) && city && state && !Number.isNaN(Number(zipCode)) && startDate && endDate && !Number.isNaN(Number(stars)));
 }
 
 class NewReview extends Component {
+  state = { stars: 0 }
 
   componentDidMount() {
-    var elems = document.querySelectorAll('.datepicker');
-    var instances = M.Datepicker.init(elems);
+    var datePicker = document.querySelectorAll('.datepicker');
+    var stateSelector = document.querySelectorAll('.select');
+    M.Datepicker.init(datePicker);
+    M.FormSelect.init(stateSelector);
+    this.handleQuery();
   };
-  // componentDidMount() {
-  //   var element = ReactDOM.findDOMNode(this.refs.dropdown)
-  // };
-  
-  // var states = [ "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" ];
+
+  handleQuery() {
+    let query = new URLSearchParams(window.location.search);
+    let street = document.getElementById("street-address");
+    if (query.get("street")) {
+      street.value = query.get("street");
+      street.focus();
+    }
+    if (query.get("apt")) {
+      let input = document.getElementById("apt-number");
+      input.value = query.get("apt");
+      input.focus();
+    }
+    if (query.get("city")) {
+      let input = document.getElementById("city");
+      input.value = query.get("city");
+      input.focus();
+    }
+    if (query.get("state")) {
+      let input = document.getElementById("state");
+      input.value = query.get("state");
+      input.focus();
+    }
+    if (query.get("zip")) {
+      let input = document.getElementById("zip-code");
+      input.value = query.get("zip");
+      input.focus();
+    }
+    street.focus();
+  }
+
+  stars(rating) {
+    this.setState({ stars: rating });
+  }
+
+  submit(event) {
+    event.preventDefault();
+    let reviewData = {
+      streetAddress: event.target["street-address"].value.trim(),
+      aptNumber: event.target["apt-number"].value.trim(),
+      city: event.target["city"].value.trim(),
+      state: event.target["state"].value.trim(),
+      zipCode: event.target["zip-code"].value.trim(),
+      startDate: event.target["start-date"].value.trim(),
+      endDate: event.target["end-date"].value.trim(),
+      stars: this.state.stars,
+      message: event.target["review"].value.trim()
+    };
+    if (validate(reviewData)) {
+      API.findPlaceFromText(`${reviewData.streetAddress}, ${reviewData.city}, ${reviewData.state} ${reviewData.zipCode}`)
+        .then(res => res.candidates[0])
+        .then(place => API.newReview({ ...reviewData, ...place }))
+        .then(() => {
+          window.location.pathname = "/";
+        })
+        .catch(console.error);
+    }
+  }
 
   render() {
     return (
       <div>
         <div className="container">
           <div className="row">
-            <form className="col s12" onSubmit={submit}>
+            <form className="col s12" onSubmit={event => this.submit(event)}>
               <div className="row">
                 <div className="input-field col s6">
                   <input id="street-address" type="text" className="validate" />
@@ -69,8 +99,7 @@ class NewReview extends Component {
                   <label htmlFor="city">City</label>
                 </div>
                 <div className="input-field col s3">
-                  <input id="state" type="text" className="validate" />
-                  <label htmlFor="state">State</label>
+                  <StateSelector id="state" />
                 </div>
                 <div className="input-field col s3">
                   <input id="zip-code" type="text" className="validate" />
@@ -86,10 +115,9 @@ class NewReview extends Component {
                   <input id="end-date" type="text" className="datepicker validate" />
                   <label htmlFor="dates-occupied">End Date</label>
                 </div>
-                <div className="input-field col s6">
-                  <StarRating></StarRating>
-                  {/* <input id="stars" type="text" className="StarRating validate" /> */}
-                  <label htmlFor="stars">Stars (1-5)</label>
+                <div className="input-field col s6 row">
+                  <StarRating onChange={rating => this.stars(rating)} />
+                  <label htmlFor="stars">Stars</label>
                 </div>
               </div>
               <div className="row">

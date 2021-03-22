@@ -2,6 +2,30 @@
 	text-align: center;
 }
 
+[role="button"] {
+	cursor: pointer;
+}
+
+.hero-image {
+  background-image: url("https://www.zillowstatic.com/s3/homepage/static/_Desktop_Overlay_ReadyChange_HC@2x.jpg");
+  height: 450px;
+  /* Position and center the image to scale on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+	padding-top: 5rem;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
 .App-logo {
 	animation: App-logo-spin infinite 20s linear;
 	height: 80px;
@@ -105,7 +129,7 @@ button:focus {
   justify-content: center;
 }
 nav {
-  background-color: #c1edfe !important;
+  background-color: #ffffff !important;
 }
 nav ul a {
   color: black !important;
@@ -113,7 +137,10 @@ nav ul a {
 .page-footer {
   background-color: #1277e1 !important;
 }
+.result-card{
+	background-color: #c1edfe !important;
 
+}
 
 @keyframes App-logo-spin {
 	from {

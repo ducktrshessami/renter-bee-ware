@@ -1,4 +1,8 @@
 const API = {
+    getReviewsFromPlaceId: function (place_id) {
+        return fetch("/api/review/" + place_id)
+            .then(res => res.json());
+    },
     newReview: function (reviewData) {
         return fetch("/api/review", {
             method: "post",

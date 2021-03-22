@@ -6,8 +6,10 @@ catch {
 }
 
 const express = require("express");
+const session = require("express-session");
 const path = require("path");
 const db = require("./models");
+const passport = require("./config/passport");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -20,7 +22,16 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// Session
+app.use(
+  session({ secret: "renter bee", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 // Link API routes
+require('./routes/user')(app);
 require("./routes/api")(app);
 require("./routes/places")(app);
 
@@ -30,7 +41,7 @@ app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-db.sequelize.sync()
+db.sequelize.sync({ force: process.env.DB_FORCE })
   .then(() => {
     app.listen(PORT, function () {
       console.log(`🌎 ==> API server now on port ${PORT}!`);

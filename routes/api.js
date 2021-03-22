@@ -1,6 +1,7 @@
 const db = require("../models");
 
 module.exports = function (app) {
+<<<<<<< HEAD
   app.get("/api/review/:place_id", function (req, res) {
     db.Place.findOne({
       where: { place_id: req.params.place_id },
@@ -12,6 +13,19 @@ module.exports = function (app) {
         res.status(500).end();
       });
   });
+=======
+    app.get("/api/review/:place_id", function (req, res) {
+        db.Place.findOne({
+            where: { place_id: req.params.place_id },
+            include: db.Review
+        })
+            .then(data => res.status(200).json(data || {}))
+            .catch(err => {
+                console.error(err);
+                res.status(500).end();
+            });
+    });
+>>>>>>> 662822a5f7f37e33605656cd4929d5ea80a42ee8
 
   app.post("/api/review", function (req, res) {
     db.Place.findOne({ where: { place_id: req.body.place_id } })

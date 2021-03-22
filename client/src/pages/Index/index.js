@@ -1,15 +1,15 @@
 import React from 'react';
-import Placeholder from "../../images/Buy_a_home_placeholder.png";
-import BannerImage from "../../images/zillow-background-image.jpg";
-import "./style.css";
+import ReadReviewsImg from "../../images/read-review-card-img.png";
+import WriteReviewImg from "../../images/write-review-card-img.png";
 
 function Index() {
   return(
     <React.Fragment>
-    <div className= "bkgimg ecbBls">
-      <div className="diDvWr"></div>
+    <div className= "hero-image">
+      <div className="hero-text">
+        <h2>Welcome Renter!</h2>
+      </div>
     </div>
-    <h2>Welcome Renter!</h2>
     <main className="container">
       <div className="row">
         <div className="col s12 m2 l2"></div>
@@ -24,7 +24,7 @@ function Index() {
           <div className="col s12 m6 l6">
             <div className="card hoverable">
               <div className="card-image">
-                <img src={Placeholder}></img>
+                <img src={ReadReviewsImg}></img>
               </div>
               <span className="card-title">Read reviews</span>
               <div className="card-content">
@@ -38,7 +38,7 @@ function Index() {
           <div className="col s12 m6 l6">
             <div className="card hoverable">
               <div className="card-image">
-                <img src={Placeholder}></img>
+                <img src={WriteReviewImg}></img>
               </div>
               <span className="card-title">Write a review</span>
               <div className="card-content">

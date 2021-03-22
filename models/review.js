@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       models.Review.belongsTo(models.Place, { onDelete: "set null" });
+      models.Review.belongsTo(models.User, { onDelete: "set null"});
     }
   };
   Review.init({
