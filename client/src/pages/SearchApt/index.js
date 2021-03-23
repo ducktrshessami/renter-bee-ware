@@ -63,7 +63,7 @@ function SearchApt() {
                 <StateSelector id="state" />
               </div>
               <div className="input-field col s3">
-                <input id="zip-code" type="text" className="validate" />
+                <input id="zip-code" type="number" className="validate" />
                 <label htmlFor="zip-code">Zip Code</label>
               </div>
             </div>
