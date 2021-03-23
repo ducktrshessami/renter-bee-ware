@@ -4,8 +4,20 @@ module.exports = function (app) {
   app.get("/api/review/:place_id", function (req, res) {
     db.Place.findOne({
       where: { place_id: req.params.place_id },
-      include: db.Review,
+      include: {
+        model: db.Review,
+        include: db.User
+      }
     })
+      .then((data) => res.status(200).json(data))
+      .catch((err) => {
+        console.error(err);
+        res.status(500).end();
+      });
+  });
+
+  app.get("/api/user/:user_id", function (req, res) {
+    db.User.findByPk(req.params.user_id, { include: db.Review })
       .then((data) => res.status(200).json(data))
       .catch((err) => {
         console.error(err);
@@ -34,15 +46,33 @@ module.exports = function (app) {
         return PlaceId;
       })
       .then((PlaceId) => db.Review.create({ ...req.body, PlaceId: PlaceId }))
-      .then((data) => res.status(200).json(data))
+      .then(data => res.status(200).json(data))
       .catch((err) => {
         console.error(err);
         res.status(500).end();
       });
   });
+<<<<<<< HEAD
   app.put("/api/review/:review_id", function (req, res) {
     db.Review.findOne({
       where: { review_id:}
     });
+=======
+  app.put("/api/review/:id", function (req, res) {
+    db.Review.findByPk(req.params.review_id)
+      .then(review => {
+        if (review) {
+          review.update(req.body)
+            .then(data => res.status(200).json(data))
+        }
+        else {
+          res.status(400).end();
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).end();
+      });
+>>>>>>> 8f512690c118679e7909e41512e30a7f1d06f2ec
   });
 };

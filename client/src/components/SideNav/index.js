@@ -24,20 +24,27 @@ export default class Sidenav extends Component {
         return (
             <ul id="sidenav" className="sidenav">
                 <Switch>
-                    <Route path="/portfolio">
-                        <li><Link to="/" onClick={() => this.clicked()}>About Me</Link></li>
-                        <li><span className="disabled">Portfolio</span></li>
-                        <li><Link to="/contact" onClick={() => this.clicked()}>Contact</Link></li>
+                    <Route path="/login">
+                        <li><span className="disabled">Log In</span></li>
+                        <li><Link className="nav-list-elements" to="/signup" onClick={() => this.clicked()}>Sign Up</Link></li>
                     </Route>
-                    <Route path="/contact">
-                        <li><Link to="/" onClick={() => this.clicked()}>About Me</Link></li>
-                        <li><Link to="/portfolio" onClick={() => this.clicked()}>Portfolio</Link></li>
-                        <li><span className="disabled">Contact</span></li>
+                    <Route path="/signup">
+                        <li><Link className="nav-list-elements" to="/login" onClick={() => this.clicked()}>Log In</Link></li>
+                        <li><span className="disabled">Sign Up</span></li>
+                    </Route>
+                    <Route path="/member">
+                        <li><span className="disabled">My Account</span></li>
+                        <li><Link className="nav-list-elements" to="/write-review" onClick={() => this.clicked()}>Write Review</Link></li>
+                    </Route>
+                    <Route path="/write-review">
+                        <li><Link className="nav-list-elements" to="/member" onClick={() => this.clicked()}>My Account</Link></li>
+                        <li><span className="disabled">Write Review</span></li>
                     </Route>
                     <Route path="/">
-                        <li><span className="disabled">About Me</span></li>
-                        <li><Link to="/portfolio" onClick={() => this.clicked()}>Portfolio</Link></li>
-                        <li><Link to="/contact" onClick={() => this.clicked()}>Contact</Link></li>
+                        {!this.props.authenticated ? <li><Link className="active" to="/login" onClick={() => this.clicked()}>Log In</Link></li> : undefined}
+                        {!this.props.authenticated ? <li><Link className="active" to="/signup" onClick={() => this.clicked()}>Sign Up</Link></li> : undefined}
+                        {this.props.authenticated ? <li><Link className="active" to="/member" onClick={() => this.clicked()}>My Account</Link></li> : undefined}
+                        {this.props.authenticated ? <li><Link className="active" to="/write-review" onClick={() => this.clicked()}>Write Review</Link></li> : undefined}
                     </Route>
                 </Switch>
             </ul>

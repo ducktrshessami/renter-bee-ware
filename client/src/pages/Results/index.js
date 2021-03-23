@@ -25,7 +25,7 @@ class Results extends Component {
       });
       API.getReviewsFromPlaceId(place_id)
         .then(res => {
-          if (Object.keys(res).length) {
+          if (res && Object.keys(res).length) {
             this.setState({
               ...this.state,
               address: res.formatted_address,

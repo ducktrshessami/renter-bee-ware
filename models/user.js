@@ -9,8 +9,13 @@ module.exports = (sequelize, DataTypes) => {
       models.User.hasMany(models.Review);
     }
   };
-  
+
   User.init({
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4
+    },
     firstName: {
       type: DataTypes.STRING,
       allowNull: false
@@ -39,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
-  User.prototype.validPassword = function(password) {
+  User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   };
 

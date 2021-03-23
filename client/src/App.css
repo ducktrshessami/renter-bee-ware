@@ -75,13 +75,7 @@ main {
 	background-color: #1277e1 !important;
 }
 
-.datepicker-cancel,
-.datepicker-clear,
-.datepicker-today,
-.datepicker-done {
-	color: #1277e1 !important;
-}
-
+/* Styling the form on all pages */
 input:not([type]):focus:not([readonly]),
 input[type='text']:not(.browser-default):focus:not([readonly]),
 input[type='password']:not(.browser-default):focus:not([readonly]),
@@ -98,10 +92,19 @@ textarea.materialize-textarea:focus:not([readonly]) {
 	border-bottom: 1px solid #0c4499 !important;
 	box-shadow: 0 1px 0 0 #0c4499 !important;
 }
-
-input[type='text']:not(.browser-default):focus:not([readonly]) + label,
-textarea.materialize-textarea:focus:not([readonly]) + label {
+input[type=text]:not(.browser-default):focus:not([readonly])+label, 
+input[type=number]:not(.browser-default):focus:not([readonly])+label, 
+input[type=email]:not(.browser-default):focus:not([readonly])+label,
+input[type=password]:not(.browser-default):focus:not([readonly])+label {
 	color: #0c4499 !important;
+}
+
+/* Styling the datepicker on the Write Review page */
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done {
+	color: #1277e1 !important;
 }
 
 .datepicker-table td.is-today {
@@ -121,6 +124,7 @@ button:focus {
 	background-color: #0c4499 !important;
 }
 
+/* Nav bar styling */
 #logo{
   size: 3rem;
   width: 75%;

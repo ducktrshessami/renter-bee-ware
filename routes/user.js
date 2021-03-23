@@ -1,13 +1,10 @@
 const db = require("../models");
 const passport = require("../config/passport");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Log In
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
-    
     res.json({
-      firstName: req.user.firstName,
-      lastName: req.user.lastName,
       email: req.user.email,
       id: req.user.id
     });
@@ -16,7 +13,8 @@ module.exports = function(app) {
   // Sign Up
   app.post("/api/signup", (req, res) => {
     db.User.create({
-
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       email: req.body.email,
       password: req.body.password
     })
@@ -29,9 +27,9 @@ module.exports = function(app) {
   });
 
   // Log Out
-  app.get("/logout", (req, res) => {
+  app.get("/api/logout", (req, res) => {
     req.logout();
-    res.redirect("/login");
+    res.end();
   });
 
   // Route for getting some data about our user to be used client side
