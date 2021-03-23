@@ -5,7 +5,7 @@ import ReviewResults from "../../components/ReviewResults";
 import "./style.css";
 
 class Member extends Component {
-  state = { reviews: [] }
+  state = { Reviews: [] }
 
   componentDidMount() {
     API.isAuthenticated()
@@ -16,14 +16,13 @@ class Member extends Component {
       })
       .catch(console.error);
     // API call to get reviews from member ID
-    API.getUserData()
+    API.getMyReviews()
       .then(data => {
         this.setState({
           ...this.state,
           ...data
         })
-      }
-    )
+      });
   }
 
 
@@ -57,7 +56,7 @@ class Member extends Component {
             </div>
             <div className="col s12 l7">
               <h5>My Reviews</h5>
-              <ReviewResults titleProp="address" reviews={this.state.reviews} />
+              <ReviewResults titleProp="address" reviews={this.state.Reviews} />
             </div>
           </div>
         </div>
