@@ -17,9 +17,9 @@ import "materialize-css/dist/css/materialize.min.css";
 
 class App extends Component {
   state = {
-    authenticated: false,
+    authenticated: true,
     userData: {},
-    refreshAuth: this.refreshAuthState
+    refreshAuth: () => this.refreshAuthState
   }
 
   componentDidMount() {
@@ -34,6 +34,13 @@ class App extends Component {
             ...this.state,
             authenticated: true,
             userData: data
+          });
+        }
+        else {
+          this.setState({
+            ...this.state,
+            authenticated: false,
+            userData: {}
           });
         }
       })
