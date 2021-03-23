@@ -40,15 +40,15 @@ class App extends Component {
         <Router>
           <Navbar authenticated={this.state.authenticated} />
           <Switch>
-            <Route exact path='/' ><Index refreshAuth={this.state.refreshNavAuth} /></Route>
-            <Route exact path='/login' ><Login refreshAuth={this.state.refreshNavAuth} /></Route>
-            <Route exact path='/signup' ><SignUp refreshAuth={this.state.refreshNavAuth} /></Route>
-            <Route exact path='/search-apt' ><SearchApt refreshAuth={this.state.refreshNavAuth} /></Route>
-            <Route exact path='/member' ><Member refreshAuth={this.state.refreshNavAuth} /></Route>
-            <Route exact path='/write-review' ><WriteReview refreshAuth={this.state.refreshNavAuth} /></Route>
-            <Route exact path='/edit-review' ><EditReview refreshAuth={this.state.refreshNavAuth} /></Route>
-            <Route exact path='/results' ><Results refreshAuth={this.state.refreshNavAuth} /></Route>
-            <Route exact path="/logout"><Logout refreshAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/' ><Index refreshNavAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/login' ><Login refreshNavAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/signup' ><SignUp refreshNavAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/search-apt' ><SearchApt refreshNavAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/member' ><Member refreshNavAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/write-review' ><WriteReview refreshNavAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/edit-review' ><EditReview refreshNavAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/results' ><Results refreshNavAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path="/logout"><Logout refreshNavAuth={this.state.refreshNavAuth} /></Route>
           </Switch>
           <Footer />
         </Router>
