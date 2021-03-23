@@ -129,7 +129,7 @@ class NewReview extends Component {
               </div>
               <div className="row">
                 <div className="input-field col s12">
-                  <textarea id="review" className="materialize-textarea validate" data-length="255"></textarea>
+                  <textarea id="review" className="materialize-textarea validate" data-length="1000"></textarea>
                   <label htmlFor="review">Review</label>
                 </div>
               </div>
