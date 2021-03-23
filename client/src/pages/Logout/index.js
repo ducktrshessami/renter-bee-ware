@@ -1,11 +1,8 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 
-export default function Logout({ refreshNavAuth }) {
-    const history = useHistory();
+export default function Logout() {
     API.logout()
-        .then(() => refreshNavAuth())
-        .then(() => history.push("/"));
+        .then(() => window.location.pathname = "/");
     return <div></div>;
 };
