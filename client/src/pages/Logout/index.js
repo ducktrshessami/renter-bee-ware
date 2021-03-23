@@ -1,8 +1,12 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 
 export default function Logout() {
-    API.logout();
+    API.logout()
+        .then(() => {
+            let history = useHistory();
+            history.push("/");
+        });
     return <div></div>;
 };
