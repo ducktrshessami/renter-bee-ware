@@ -59,7 +59,7 @@ export default class ResultsCard extends Component {
                   >
                     Write Review
                   </button>
-                  <hr/>
+                  <br/>
                   <button
                     className="col-6 btn btn-large waves-effect waves-light"
                     type="submit"

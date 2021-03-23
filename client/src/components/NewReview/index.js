@@ -14,8 +14,11 @@ class NewReview extends Component {
   componentDidMount() {
     var datePicker = document.querySelectorAll('.datepicker');
     var stateSelector = document.querySelectorAll('.select');
+    var dataLength = document.querySelectorAll("[data-length]");
+    console.log(dataLength);
     M.Datepicker.init(datePicker);
     M.FormSelect.init(stateSelector);
+    M.CharacterCounter.init(dataLength);
     this.handleQuery();
   };
 
@@ -122,7 +125,7 @@ class NewReview extends Component {
               </div>
               <div className="row">
                 <div className="input-field col s12">
-                  <textarea id="review" className="materialize-textarea validate"></textarea>
+                  <textarea id="review" className="materialize-textarea validate" data-length="255"></textarea>
                   <label htmlFor="review">Review</label>
                 </div>
               </div>

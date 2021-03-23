@@ -4,7 +4,7 @@ import StarRating from "../StarRating";
 export default function ReviewCard({ title, startDate, endDate, stars, message }) {
     return (
         <div className="col s12 m6">
-            <div className="card">
+            <div className="card hoverable">
                 <div className="card-content">
                     <span className="card-title">{title}</span>
                     <p>Dates Occupied: {startDate} - {endDate}</p>
