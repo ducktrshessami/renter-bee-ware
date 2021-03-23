@@ -20,15 +20,12 @@ function Index() {
     </div>
     <main className="container">
       <div className="row">
-        <div className="col s12 m2 l2"></div>
-        <div className="col s12 m10 l8">
+        <div className="col s12 m10 l8 offset-l2 offset-m1">
           <p>Our reviews could you avoid a disaster or find a great place to live. Reading our reviews is always free and easy, simply search for a unit by address. If you would like to write a review you will need to log in to your account or sign up. Happy hunting!</p>
         </div>
-        <div className="col s12 m2 l2"></div>
       </div>
       <div className="row">
-        <div className="col s12 m2 l2"></div>
-        <div className="col s12 m8 l8">
+        <div className="col s12 m8 l8 offset-l2 offset-m2">
           <div className="col s12 m6 l6">
             <div className="card hoverable">
               <div className="card-image">
@@ -58,7 +55,6 @@ function Index() {
             </div>
           </div>
         </div>
-        <div className="col s12 m2 l2"></div>
       </div>       
     </main>
     </React.Fragment>
