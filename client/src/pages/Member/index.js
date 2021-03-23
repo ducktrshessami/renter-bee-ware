@@ -20,7 +20,7 @@ class Member extends Component {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 4 }}
-            className="center-align">Welcome, Stranger</motion.h1>                
+            className="center-align">Welcome</motion.h1>                
             <motion.h5 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
