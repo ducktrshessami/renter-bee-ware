@@ -18,8 +18,7 @@ import "materialize-css/dist/css/materialize.min.css";
 class App extends Component {
   state = {
     authenticated: true,
-    userData: {},
-    refreshAuth: () => this.refreshAuthState()
+    refreshNavAuth: () => this.refreshAuthState()
   }
 
   componentDidMount() {
@@ -28,22 +27,10 @@ class App extends Component {
 
   refreshAuthState() {
     return API.getUserData()
-      .then(data => {
-        if (Object.keys(data).length) {
-          this.setState({
-            ...this.state,
-            authenticated: true,
-            userData: data
-          });
-        }
-        else {
-          this.setState({
-            ...this.state,
-            authenticated: false,
-            userData: {}
-          });
-        }
-      })
+      .then(data => this.setState({
+        ...this.state,
+        authenticated: Boolean(data && Object.keys(data).length)
+      }))
       .catch(console.error);
   }
 
@@ -53,25 +40,15 @@ class App extends Component {
         <Router>
           <Navbar authenticated={this.state.authenticated} />
           <Switch>
-            <Route exact path='/' ><Index {...this.state} /></Route>
-            <Route exact path='/login' >
-              {this.state.authenticated ? <Redirect to="/" /> : <Login {...this.state} />}
-            </Route>
-            <Route exact path='/signup' >
-              {this.state.authenticated ? <Redirect to="/" /> : <SignUp {...this.state} />}
-            </Route>
-            <Route exact path='/search-apt' ><SearchApt {...this.state} /></Route>
-            <Route exact path='/member' >
-              {!this.state.authenticated ? <Redirect to="/login" /> : <Member {...this.state} />}
-            </Route>
-            <Route exact path='/write-review' >
-              {!this.state.authenticated ? <Redirect to="/login" /> : <WriteReview {...this.state} />}
-            </Route>
-            <Route exact path='/edit-review' >
-              {!this.state.authenticated ? <Redirect to="/login" /> : <EditReview {...this.state} />}
-            </Route>
-            <Route exact path='/results' ><Results {...this.state} /></Route>
-            <Route exact path="/logout"><Logout {...this.state} /></Route>
+            <Route exact path='/' ><Index refreshAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/login' ><Login refreshAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/signup' ><SignUp refreshAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/search-apt' ><SearchApt refreshAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/member' ><Member refreshAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/write-review' ><WriteReview refreshAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/edit-review' ><EditReview refreshAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path='/results' ><Results refreshAuth={this.state.refreshNavAuth} /></Route>
+            <Route exact path="/logout"><Logout refreshAuth={this.state.refreshNavAuth} /></Route>
           </Switch>
           <Footer />
         </Router>

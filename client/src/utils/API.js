@@ -48,6 +48,10 @@ const API = {
     photoUrl: function (photo_reference) {
         return "/api/photo/" + photo_reference;
     },
+    isAuthenticated: function () {
+        return this.getUserData()
+            .then(userData => Boolean(userData && Object.keys(userData).length));
+    },
     getUserData: function () {
         return fetch("/api/user_data")
             .then(res => res.json());
