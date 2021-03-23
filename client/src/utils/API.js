@@ -70,6 +70,9 @@ const API = {
             headers: { "Content-Type": "application/json" }
         })
             .then(res => res.json());
+    },
+    logout: function () {
+        return fetch("/api/logout");
     }
 };
 
