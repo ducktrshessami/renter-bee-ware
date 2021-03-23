@@ -52,12 +52,6 @@ module.exports = function (app) {
         res.status(500).end();
       });
   });
-<<<<<<< HEAD
-  app.put("/api/review/:review_id", function (req, res) {
-    db.Review.findOne({
-      where: { review_id:}
-    });
-=======
   app.put("/api/review/:id", function (req, res) {
     db.Review.findByPk(req.params.review_id)
       .then(review => {
@@ -73,6 +67,5 @@ module.exports = function (app) {
         console.error(err);
         res.status(500).end();
       });
->>>>>>> 8f512690c118679e7909e41512e30a7f1d06f2ec
   });
 };
