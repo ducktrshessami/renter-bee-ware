@@ -10,6 +10,13 @@ class Member extends Component {
 
   componentDidMount() {
     // API call to get reviews from member ID
+    API.getReviewsFromUserId(this.props.userID)
+      .then(res => {
+        if (Object.keys(res).length) {
+          this.setState({ reviews: [] });
+        }
+      })
+      .catch(console.error);
   }
 
   render() {
