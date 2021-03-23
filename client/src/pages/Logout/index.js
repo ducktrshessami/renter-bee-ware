@@ -5,9 +5,7 @@ import API from "../../utils/API";
 export default function Logout({ refreshAuth }) {
     const history = useHistory();
     API.logout()
-        .then(() => {
-            refreshAuth()
-                .then(() => history.push("/"));
-        });
+        .then(() => refreshAuth())
+        .then(() => history.push("/"));
     return <div></div>;
 };

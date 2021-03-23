@@ -19,7 +19,7 @@ class App extends Component {
   state = {
     authenticated: true,
     userData: {},
-    refreshAuth: () => this.refreshAuthState
+    refreshAuth: () => this.refreshAuthState()
   }
 
   componentDidMount() {
