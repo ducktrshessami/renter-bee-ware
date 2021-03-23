@@ -20,9 +20,7 @@ function SearchApt() {
       state: event.target["state"].value.trim(),
       zipCode: event.target["zip-code"].value.trim(),
     };
-    API.findPlaceFromText(
-      `${searchData.streetAddress}, #${aptNumber}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`
-    )
+    API.findPlaceFromText(`${searchData.streetAddress}, ${searchData.city}, ${searchData.state}, ${searchData.zipCode}`)
       .then((res) => res.candidates)
       .then(setSearchResults);
   }

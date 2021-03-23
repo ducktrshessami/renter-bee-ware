@@ -14,7 +14,7 @@ export default class ResultsCard extends Component {
   componentDidMount() {
     API.getReviewsFromPlaceId(this.props.placeId)
       .then(res => {
-        if (Object.keys(res).length) {
+        if (res && Object.keys(res).length) {
           this.setState({ rating: getAverageRating(res) });
         }
       })
@@ -59,7 +59,7 @@ export default class ResultsCard extends Component {
                   >
                     Write Review
                   </button>
-                  <hr/>
+                  <hr />
                   <button
                     className="col-6 btn btn-large waves-effect waves-light"
                     type="submit"
