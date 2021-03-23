@@ -2,11 +2,12 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 
-export default function Logout() {
+export default function Logout({ refreshAuth }) {
+    const history = useHistory();
     API.logout()
         .then(() => {
-            let history = useHistory();
-            history.push("/");
+            refreshAuth()
+                .then(() => history.push("/"));
         });
     return <div></div>;
 };
