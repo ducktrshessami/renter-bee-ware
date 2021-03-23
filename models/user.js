@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
 
-const { Model } = require('sequelize');
+const { Model, UUIDV4 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -11,6 +11,15 @@ module.exports = (sequelize, DataTypes) => {
   };
   
   User.init({
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: UUIDV4
+    },
+    place_id: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     firstName: {
       type: DataTypes.STRING,
       allowNull: false
