@@ -4,10 +4,14 @@ import NewReview from "../../components/NewReview";
 import API from "../../utils/API";
 
 function WriteReview() {
+  const [UserId, setUserId] = React.useState();
   const history = useHistory();
-  API.isAuthenticated()
+  API.getUserData()
     .then(res => {
-      if (!res) {
+      if (res && Object.keys(res).length) {
+        setUserId(res.id);
+      }
+      else {
         history.push("/login");
       }
     })
@@ -15,7 +19,7 @@ function WriteReview() {
   return (
     <div className="container">
       <h2 className="center-align">New Review</h2>
-      <NewReview />
+      <NewReview UserId={UserId} />
     </div>
   );
 }

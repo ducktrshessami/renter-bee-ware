@@ -69,7 +69,11 @@ class NewReview extends Component {
     if (validate(reviewData)) {
       API.findPlaceFromText(`${reviewData.streetAddress}, ${reviewData.city}, ${reviewData.state} ${reviewData.zipCode}`)
         .then(res => res.candidates[0])
-        .then(place => API.newReview({ ...reviewData, ...place }))
+        .then(place => API.newReview({
+          ...reviewData,
+          ...place,
+          UserId: this.props.UserId
+        }))
         .then(() => {
           window.location.pathname = "/";
         })
