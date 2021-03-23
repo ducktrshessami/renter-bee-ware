@@ -6,8 +6,8 @@ const API = {
             .then(res => res.json());
     },
     getReviewsFromUserId: function (user_id) {
-        return fetch("api/user/" + user_id)
-        .then(res => res.json());
+        return fetch("/api/user/" + user_id)
+            .then(res => res.json());
     },
     newReview: function (reviewData) {
         return fetch("/api/review", {
@@ -63,18 +63,16 @@ const API = {
         })
             .then(res => res.json());
     },
-    signUp: function (email, password) {
+    signUp: function (info) {
         return fetch("/api/signup", {
             method: "post",
-            body: JSON.stringify({
-                // firstName: firstName,
-                // lastName: lastName,
-                email: email,
-                password: password
-            }),
+            body: JSON.stringify(info),
             headers: { "Content-Type": "application/json" }
         })
             .then(res => res.json());
+    },
+    logout: function () {
+        return fetch("/api/logout");
     }
 };
 

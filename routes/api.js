@@ -4,8 +4,20 @@ module.exports = function (app) {
   app.get("/api/review/:place_id", function (req, res) {
     db.Place.findOne({
       where: { place_id: req.params.place_id },
-      include: db.Review,
+      include: {
+        model: db.Review,
+        include: db.User
+      }
     })
+      .then((data) => res.status(200).json(data))
+      .catch((err) => {
+        console.error(err);
+        res.status(500).end();
+      });
+  });
+
+  app.get("/api/user/:user_id", function (req, res) {
+    db.User.findByPk(req.params.user_id, { include: db.Review })
       .then((data) => res.status(200).json(data))
       .catch((err) => {
         console.error(err);
