@@ -70,6 +70,7 @@ function SearchApt() {
             </div>
           </form>
         </div>
+        <h3 className="header">Search Results</h3>
         <div className="row">
           <div className="col s12">{searchResults.map(parseResult)}</div>
         </div>

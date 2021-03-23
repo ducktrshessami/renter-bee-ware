@@ -40,7 +40,6 @@ export default class ResultsCard extends Component {
       <div className="container">
         <div className="row valign-wrapper">
           <div className="col s8 offset-s2 valign">
-            <h3 className="header">Search Results</h3>
             <div className="card horizontal result-card">
               <div className="card-image">
                 <img src={this.props.photo || placeholderImage} alt={this.props.name} />
