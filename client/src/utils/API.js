@@ -9,6 +9,10 @@ const API = {
         return fetch("/api/user/" + user_id)
             .then(res => res.json());
     },
+    getMyReviews: function () {
+        return fetch("/api/user")
+            .then(res => res.json());
+    },
     newReview: function (reviewData) {
         return fetch("/api/review", {
             method: "post",
