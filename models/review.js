@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    message: DataTypes.STRING,
+    message: DataTypes.STRING(1000),
     startDate: {
       type: DataTypes.DATEONLY
     },
