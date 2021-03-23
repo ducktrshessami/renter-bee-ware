@@ -42,7 +42,7 @@ module.exports = function (app) {
   });
   app.put("/api/review/:review_id", function (req, res) {
     db.Review.findOne({
-      where: { review_id: },
+      where: { review_id:}
     });
   });
 };
