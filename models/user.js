@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       defaultValue: UUIDV4
     },
-    place_id: {
+    user_id: {
       type: DataTypes.STRING,
       allowNull: false
     },
