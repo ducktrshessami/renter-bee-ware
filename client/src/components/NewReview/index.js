@@ -93,7 +93,7 @@ class NewReview extends Component {
                   <label htmlFor="street-address">Street Address</label>
                 </div>
                 <div className="input-field col s6">
-                  <input id="apt-number" type="text" className="validate" />
+                  <input id="apt-number" type="number" className="validate" />
                   <label htmlFor="apt-number">Apt/Unit Number</label>
                 </div>
               </div>

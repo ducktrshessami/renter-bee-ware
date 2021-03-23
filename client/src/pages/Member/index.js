@@ -4,7 +4,6 @@ import API from "../../utils/API";
 import ReviewResults from "../../components/ReviewResults";
 import "./style.css";
 
-
 class Member extends Component {
   state = { reviews: [] }
 
@@ -17,7 +16,16 @@ class Member extends Component {
       })
       .catch(console.error);
     // API call to get reviews from member ID
+    API.getUserData()
+      .then(data => {
+        this.setState({
+          ...this.state,
+          ...data
+        })
+      }
+    )
   }
+
 
   render() {
     return (
@@ -27,7 +35,7 @@ class Member extends Component {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 4 }}
-            className="center-align">Welcome, Stranger</motion.h1>
+            className="center-align">Welcome <span>{this.state.firstName}</span></motion.h1>
           <motion.h5
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
