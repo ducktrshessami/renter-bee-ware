@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import "./App.css";
 import Index from './pages/Index';
+import Logout from "./pages/Logout";
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import SearchApt from './pages/SearchApt';
@@ -26,7 +27,7 @@ class App extends Component {
   }
 
   refreshAuthState() {
-    API.getUserData()
+    return API.getUserData()
       .then(data => {
         if (Object.keys(data).length) {
           this.setState({
@@ -63,6 +64,7 @@ class App extends Component {
               {!this.state.authenticated ? <Redirect to="/login" /> : <EditReview {...this.state} />}
             </Route>
             <Route exact path='/results' ><Results {...this.state} /></Route>
+            <Route exact path="/logout"><Logout {...this.state} /></Route>
           </Switch>
           <Footer />
         </Router>
