@@ -40,8 +40,9 @@ Thank you for all your help and Support!
 <br>
 [Nick Penaloza](https://github.com/ndpenaloza)
 <br>
-[Dillon](https://github.com/dillonhoban)
+[Dillon Hoban](https://github.com/dillonhoban)
 <br>
-
+[Emily Thomas](https://github.com/ethomas22)
+<br>
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
