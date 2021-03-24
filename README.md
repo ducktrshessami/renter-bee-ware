@@ -33,5 +33,15 @@ This project was developed over one month as a final for the 2020-2021 Full Stac
 ## Validation 
 This site’s HTML was validated using a third party service found [here.](https://validator.w3.org/)
 
+## Credits
+Thank you for all your help and Support!
+<br>
+[Josh Wee](https://github.com/ducktrshessami)
+<br>
+[Nick Penaloza](https://github.com/ndpenaloza)
+<br>
+[Dillon](https://github.com/dillonhoban)
+<br>
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
