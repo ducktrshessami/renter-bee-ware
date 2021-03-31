@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import StarRating from "../StarRating";
-
-const placeholderImage = "https://via.placeholder.com/100";
+import placeholderImage from "../../images/placeholder.png";
 
 function getAverageRating(Place) {
   return Place.Reviews.reduce((sum, review) => sum + review.stars, 0) / Place.Reviews.length;
@@ -58,7 +57,7 @@ export default class ResultsCard extends Component {
                   >
                     Write Review
                   </button>
-                  <br/>
+                  <br />
                   <button
                     className="col-6 btn btn-large waves-effect waves-light"
                     type="submit"

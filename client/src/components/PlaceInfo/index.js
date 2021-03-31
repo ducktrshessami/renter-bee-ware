@@ -1,6 +1,5 @@
 import React from "react";
-
-const placeholderImage = "https://via.placeholder.com/100";
+import placeholderImage from "../../images/placeholder.png";
 
 export default function PlaceInfo({ address, name, photo, url }) {
     return (
