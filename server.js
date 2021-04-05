@@ -7,6 +7,7 @@ catch {
 
 const express = require("express");
 const session = require("express-session");
+const MemoryStore = require("memorystore")(session);
 const path = require("path");
 const db = require("./models");
 const passport = require("./config/passport");
@@ -23,9 +24,12 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Session
-app.use(
-  session({ secret: process.env.SESSION_SECRET || "renter bee", resave: true, saveUninitialized: true })
-);
+app.use(session({
+  secret: process.env.SESSION_SECRET || "renter bee",
+  resave: true,
+  saveUninitialized: true,
+  store: new MemoryStore({ checkPeriod: 86400000 })
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
