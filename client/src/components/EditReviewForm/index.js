@@ -5,7 +5,7 @@ class EditReviewForm extends Component {
 
   componentDidMount() {
     var elems = document.querySelectorAll('.datepicker');
-    var instances = M.Datepicker.init(elems);
+    M.Datepicker.init(elems);
   };
 
   render() {
@@ -66,7 +66,7 @@ class EditReviewForm extends Component {
         </div>
       </div>
     )
-  }  
+  }
 }
 
 export default EditReviewForm;
