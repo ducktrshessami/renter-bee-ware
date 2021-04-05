@@ -34,7 +34,7 @@ function SearchApt() {
   }
 
   var stateSelector = document.querySelectorAll('.select');
-  var stateInstances = M.FormSelect.init(stateSelector);
+  M.FormSelect.init(stateSelector);
 
   return (
     <div className="container">
