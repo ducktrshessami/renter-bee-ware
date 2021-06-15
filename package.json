@@ -20,21 +20,21 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^6.0.2",
-    "dotenv": "^8.2.0",
+    "concurrently": "^6.2.0",
+    "dotenv": "^10.0.0",
     "nodemon": "^2.0.7"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
-    "express-session": "^1.17.1",
+    "express-session": "^1.17.2",
     "if-env": "^1.0.4",
     "memorystore": "^1.6.6",
     "node-fetch": "^2.6.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^8.6.0",
-    "pg-hstore": "^2.3.3",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.6.2"
   },
   "repository": {
